@@ -1,0 +1,197 @@
+[
+    {
+        "pk": 3, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Bolsa de Estudo", 
+            "url": "\/bolsa-de-estudo\/", 
+            "template_name": "flatpages\/bolsa.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<h2>Objetivo<\/h2>\r\n<p>\r\nO objetivo do programa de Bolsa de Estudo se baseia na melhoria da auto-sufici\u00eancia dos candidatos atrav\u00e9s do aumento da aptid\u00e3o, capacidade e intelig\u00eancia com a finalidade de:\r\n<\/p>\r\n\r\n<ul>\r\n<li>Aumentar imediatamente o sal\u00e1rio do candidato atrav\u00e9s da instru\u00e7\u00e3o formal de curto prazo (at\u00e9 24 meses);<\/li>\r\n<li>Criar um ambiente de auto-sufici\u00eancia;<\/li>\r\n<li>Retribuir e passar adiante o incentivo recebido, criando uma corrente do bem.<\/li>\r\n<\/ul>\r\n\r\n<h2>Qualifica\u00e7\u00f5es do candidato<\/h2>\r\n<p>\r\nUm candidato competitivo \u00e9 aquele que j\u00e1 planejou a sua carreira, tendo o curso desejado como parte deste plano para aumentar a sua capacidade de tornar-se auto-suficiente.  O candidato deve demostrar como o curso se relaciona a seu campo de trabalho atual, e que o curso aumentar\u00e1 imediatamente o seu sal\u00e1rio.  Al\u00e9m disso, os candidatos que desejam ser avaliados para o recebimento da bolsa de estudo da Incentivo, tamb\u00e9m dever\u00e3o cumprir com os seguintes requisitos:\r\n<\/p>\r\n\r\n<ul>\r\n<li>Ter mais de 30 anos;<\/li>\r\n<li>Capacidade de pagar pelo menos 50% do valor do curso;<\/li>\r\n<li>Demonstrar que o curso n\u00e3o durar\u00e1 mais do que 24 meses;<\/li>\r\n<li>Ser membro ativo da Igreja de Jesus Cristo dos Santos dos \u00daltimos Dias;<\/li>\r\n<li>Comprometer-se com a filosofia da Incentivo, Passar Adiante;<\/li>\r\n<li>Fazer o Curso de Auto-Sufici\u00eancia Profissional (CASP);<\/li>\r\n<li>Fazer o Curso Planejar para o Sucesso;<\/li>\r\n<li>Demonstrar que o curso ajudar\u00e1 no desenvolvimento de sua carreira;<\/li>\r\n<li>Preencher Formul\u00e1rio para requisi\u00e7\u00e3o de Bolsa de Estudos<\/li>\r\n<\/ul>\r\n\r\n<h2>Cursos Aceit\u00e1veis<\/h2>\r\n<p>\r\nEste programa tem a finalidade de auxiliar indiv\u00edduos com necessidade de educa\u00e7\u00e3o complementar.  A incentivo recebe pedidos de Bolsa de candidatos que atuam em diversos campos profissionais.  Esta iniciativa n\u00e3o tem a finalidade de ajudar indiv\u00edduos com cursos de prepara\u00e7\u00e3o universit\u00e1ria (por exemplo: cursinho pr\u00e9-vestibular), p\u00f3s-gradua\u00e7\u00e3o, mestrado ou estudos no exterior (BYU).  Alguns dos candidatos rec\u00e9m-aprovados iniciaram cursos tais como (esta lista \u00e9 inclusiva, mas n\u00e3o exclusiva):\r\n<\/p>\r\n\r\n<ul>\r\n<li>T\u00e9cnico em Farm\u00e1cia;<\/li>\r\n<li>Escola T\u00e9cnica;<\/li>\r\n<li>Escola Profissional;<\/li>\r\n<li>Curso de Seguran\u00e7a;<\/li>\r\n<li>Seguran\u00e7a do Trabalho.<\/li>\r\n<\/ul>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Perguntas frequentes", 
+            "url": "\/bolsa-de-estudo\/faq\/", 
+            "template_name": "flatpages\/bolsa-faq.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<h1Perguntas frequentes<\/h1>\r\n\r\n<dl>\r\n\r\n<dt>A partir de que idade posso solicitar a bolsa?<\/dt>\r\n<dd>O candidato deve ter, no m\u00ednimo, 30 anos de idade.<\/dd>\r\n\r\n<dt>A bolsa \u00e9 destinada \u00e0 p\u00f3s-gradua\u00e7\u00e3o, mestrado ou doutorado?<\/dt>\r\n<dd>N\u00e3o, a bolsa da Incentivo n\u00e3o tem esta finalidade.<\/dd>\r\n\r\n<dt>Qual a universidade\/escola t\u00e9cnica que a Incentivo indica para o candidato \u00e0 bolsa?<\/dt>\r\n<dd>N\u00f3s n\u00e3o damos prefer\u00eancia a nenhuma universidade ou institui\u00e7\u00e3o.<\/dd>\r\n\r\n<dt>Como funciona o reembolso da bolsa?<\/dt>\r\n<dd>O bolsista pagar\u00e1 o valor total da mensalidade e depois mandar\u00e1 o recibo \u00e0 Incentivo para depois de 5 a 7 dias \u00fateis receber o reembolso.<\/dd>\r\n\r\n<dt>Qual o valor da bolsa que ser\u00e1 concedido ao estudante?<\/dt>\r\n<dd>O valor m\u00e1ximo da bolsa \u00e9 de 50% do valor do curso.<\/dd>\r\n\r\n<dt>Voc\u00eas ajudam tamb\u00e9m com as despesas do estudante?<\/dt>\r\n<dd>N\u00e3o, a Incentivo somente ajuda com at\u00e9 50% do valor do curso. Qualquer outra despesa ser\u00e1 de responsabilidade do candidato.<\/dd>\r\n\r\n<dt>Quando receberei uma resposta sobre meu pedido de Bolsa?<\/dt>\r\n<dd>O processo de avalia\u00e7\u00e3o pode levar at\u00e9 60 dias. Os formul\u00e1rios do m\u00eas anterior ser\u00e3o avaliados no in\u00edcio de cada m\u00eas. Por exemplo: se voc\u00ea mandar o seu formul\u00e1rio no dia 5 de junho, somente ser\u00e1 avaliado ap\u00f3s o dia 1\u00ba de julho.<\/dd>\r\n\r\n<dt>Quando devo come\u00e7ar o processo de pedido da Bolsa?<\/dt>\r\n<dd>Recomendamos que voc\u00ea preencha o formul\u00e1rio, no m\u00ednimo, 90 dias antes do in\u00edcio do seu curso.<\/dd>\r\n\r\n<dt>A Incentivo tem algum n\u00famero de contato ou endere\u00e7o f\u00edsico?<\/dt>\r\n<dd>N\u00e3o, a Incentivo usa somente comunica\u00e7\u00e3o \u201cvirtual\u201d e todo nosso contato \u00e9 feito por E-mail.<\/dd>\r\n\r\n<dt>Aonde se encontra o formul\u00e1rio necess\u00e1rio para preencher?<\/dt>\r\n<dd>Para acessar o formul\u00e1rio clique aqui.<\/dd>\r\n\r\n<dt>A bolsa \u00e9 destinada apenas para mulheres?<\/dt>\r\n<dd>N\u00e3o, a bolsa \u00e9 tanto para os homens como para as mulheres.<\/dd>\r\n\r\n<dt>Eu j\u00e1 recebo ajuda do fundo perp\u00e9tuo, posso me increver para uma bolsa da Incentivo?<\/dt>\r\n<dd>N\u00e3o.<\/dd>\r\n\r\n<\/dl>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Processo Bolsa de Estudo", 
+            "url": "\/bolsa-de-estudo\/processo\/", 
+            "template_name": "flatpages\/bolsa.html", 
+            "sites": [
+                1
+            ], 
+            "content": "  <h2>State Diagram<\/h2>\r\n<div class=\"reset\">\r\n  <div id=\"diagram\">\r\n    <!-- Initial state. -->\r\n    <div id=\"current\" class=\"row2 col1 size1\">\r\n      <h3>Start<\/h3>\r\n\r\n      <ul>\r\n        <li class=\"circ-top\"><samp><var>&lt;space&gt;<\/var><\/samp><span> is\r\n          ignored<\/span><\/li>\r\n        <li class=\"down height1\"><samp>*<\/samp><span> (any character) causes a\r\n          transition to the <abbr title=\"HyperText Markup Language\">HTML<\/abbr>\r\n          state.<\/span><\/li>\r\n        <li class=\"right width1\"><samp>&lt;<\/samp><span> leads to the\r\n          OpenRootTag state.<\/span><\/li>\r\n\r\n      <\/ul>\r\n    <\/div>\r\n\r\n    <!-- HTML state. -->\r\n    <div class=\"row3 col1 size1\">\r\n      <h3><abbr title=\"HyperText Markup Language\">HTML<\/abbr><\/h3>\r\n      <ul>\r\n        <li class=\"circ-right\"><samp>*<\/samp><span> (any character) is\r\n          allowed.<\/span><\/li>\r\n\r\n        <li class=\"down height1\"><samp>&lt;<\/samp><span> causes a transition to\r\n          the <\/span><a href=\"#\" class=\"size3\">OpenContentTag<\/a>\r\n          <span>state.<\/span><\/li>\r\n      <\/ul>\r\n    <\/div>\r\n\r\n    <!-- OpenRootTag state. -->\r\n    <div class=\"row2 col3 size2\">\r\n\r\n      <h3>OpenRootTag<\/h3>\r\n      <ul>\r\n        <li class=\"up height1\"><samp>!<\/samp><span> causes a transition to the\r\n          OpenRootDirective state<\/span><\/li>\r\n        <li class=\"right width2\"><samp>?<\/samp><span> causes a transition to\r\n          the <\/span><a href=\"#\" class=\"size2\">OpenPI<\/a>\r\n          <span>state.<\/span><\/li>\r\n\r\n        <li class=\"down-right size4\"><samp><var>&lt;id&gt;<\/var><\/samp><span>\r\n          causes a transition to the\r\n          <\/span><a href=\"#\" class=\"size2\">StartTag<\/a>\r\n          <span>state.<\/span><\/li>\r\n      <\/ul>\r\n    <\/div>\r\n\r\n    <!-- OpenRootDirective state. -->\r\n\r\n    <div class=\"row1 col2 size3\">\r\n      <h3>OpenRootDirective<\/h3>\r\n      <ul>\r\n        <li class=\"up-right size5\"><samp>-<\/samp><span> causes a transition to\r\n          the <\/span><a href=\"#\" class=\"size2\">OpenComment1<\/a>\r\n          <span>state.<\/span><\/li>\r\n        <li class=\"right width1\"><samp>DOCTYPE<\/samp><span> causes a transition\r\n          to the <\/span><a href=\"#\" class=\"size2\">OpenDocType<\/a>\r\n\r\n          <span>state.<\/span><\/li>\r\n        <li class=\"down-right size5\"><samp>[<\/samp><span> causes a transition to\r\n          the <\/span><a href=\"#\" class=\"size2\">OpenCDATA1<\/a>\r\n          <span>state.<\/span><\/li>\r\n      <\/ul>\r\n    <\/div>\r\n  <\/div>\r\n<\/div>\r\n <!-- #diagram -->\r\n", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Finan\u00e7as Pessoais", 
+            "url": "\/financas-pessoais\/", 
+            "template_name": "flatpages\/financas-pessoais.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<h2>Objetivo<\/h2>\r\n<p>\r\nEm harmonia com a vis\u00e3o da Incentivo, as aulas de Finan\u00e7as Pessoais proporcionam aos participantes um meio de melhorar a qualidade de vida e tornarem-se cada vez mais auto-suficientes, permitindo, assim, que os participantes cumpram com a filosofia de Passar Adiante o Incentivo. Os participantes receber\u00e3o uma aprendizagem completa que os permitir\u00e1 melhor administrar seu dinheiro, podendo assim, quitar d\u00edvidas, gastar menos, guardar dinheiro e realizar sonhos.\r\n<\/p>\r\n\r\n<h2>Descri\u00e7\u00e3o do Programa<\/h2>\r\n<p>\r\nA incentivo organiza pequenos grupos para o curso de finan\u00e7as pessoais em diversas cidades no Brasil. O curso \u00e9 composto de 6 aulas que abordam temas atuais e pr\u00e1ticos.\r\n<\/p>\r\n\r\n<p>\r\nConte\u00fado do curso:\r\n<\/p>\r\n\r\n<ul>\r\n<li>Aula 1: Or\u00e7amento;<\/li>\r\n<li>Aula 2: Diminuindo custos e reduzindo despesas;<\/li>\r\n<li>Aula 3: Eliminando D\u00edvidas;<\/li>\r\n<li>Aula 4: Economizando Dinheiro;<\/li>\r\n<li>Aula 5: Fazendo seu dinheiro render;<\/li>\r\n<li>Aula 6: Mantendo bons h\u00e1bitos de Finan\u00e7as Pessoais.<\/li>\r\n<\/ul>\r\n\r\n<p>\r\nPara baixar o conte\u00fado do curso, clique no bot\u00e3o abaixo:\r\n<\/p>\r\n\r\n<ul>\r\n<li>Apostila do Curso de Finan\u00e7as Pessoais  (*** Criar um bot\u00e3o para ir \u00e0 apostila***)<\/li>\r\n<\/ul>\r\n\r\n<h2>Como participar do Curso<\/h2>\r\n\r\n<ul>\r\n<li>Forme um grupo com 10 a 15 alunos;<\/li>\r\n<li>Encontre ou seja um instrutor do curso;<\/li>\r\n<li>Envie e-mail para financas@incentivo.org.br contendo os dados do instrutor,\r\n      alunos e local do curso (modelo de cadastro abaixo);<\/li>\r\n<li>Receba as apostilas pelo correio;<\/li>\r\n<li>Siga o calend\u00e1rio nacional do curso (calend\u00e1rio abaixo).<\/li>\r\n<\/ul>\r\n\r\n<h2>Calend\u00e1rio 2007 \u2013 Curso de Finan\u00e7as Pessoais<\/h2>\r\n\r\n<p>\r\nAs turmas do Curso de Finan\u00e7as Pessoais em todo o pa\u00eds devem seguir o\r\ncalend\u00e1rio abaixo a fim de que ocorram simultaneamente, para que haja\r\nrapidez e organiza\u00e7\u00e3o nos preparativos de cada turma.\r\n<\/p>\r\n\r\n<p>\r\n31 de Janeiro \u2013 Prazo final para envio de cadastro com pedido de apostilas da Turma 1\r\n17 a 24 de Fevereiro \u2013 Semana para in\u00edcio das aulas da Turma 1 em todo o Brasil\r\n(cada grupo deve escolher o melhor dia da semana para as aulas, exceto\r\nsegunda-feira \u00e0 noite).\r\n<\/p>\r\n\r\n<dl>\r\n\r\n<dt>28 de Fevereiro<\/dt>\r\n<dd>razo final para envio de cadastro com pedido de apostilas da Turma 2<\/dd>\r\n\r\n<dt>17 a 24 de Mar\u00e7o<\/dt>\r\n<dd>Semana para in\u00edcio das aulas da Turma 2 em todo o Brasil<\/dd>\r\n\r\n<dt>31 de Mar\u00e7o<\/dt>\r\n<dd>Prazo final para envio de cadastro com pedido de apostilas da Turma 3<\/dd>\r\n\r\n\r\n<dt>21 a 28 de Abril<\/dt>\r\n<dd>Semana para in\u00edcio das aulas da Turma 3 em todo o Brasil<\/dd>\r\n\r\n<dt><\/dt><dd><\/dd>\r\n\r\n<dt>30 de Abril<\/dt><dd>Prazo final para envio de cadastro com pedido de apostilas da Turma 4<\/dd>\r\n<dt>19 a 26 de Maio<\/dt><dd>Semana para in\u00edcio das aulas da Turma 4 em todo o Brasil<\/dd>\r\n<dt>31 de Maio<\/dt><dd>Prazo final para envio de cadastro com pedido de apostilas da Turma 5<\/dd>\r\n<dt>16 a 23 de Junho<\/dt><dd>Semana para in\u00edcio das aulas da Turma 5 em todo o Brasil<\/dd>\r\n<dt>31 de Julho<\/dt><dd>Prazo final para envio de cadastro com pedido de apostilas da Turma 6<\/dd>\r\n<dt>18 a 25 de Agosto<\/dt><dd>Semana para in\u00edcio das aulas da Turma 6 em todo o Brasil\r\n<\/dd>\r\n<dt>31 de Agosto<\/dt><dd>Prazo final para envio de cadastro com pedido de apostilas da Turma 7<\/dd>\r\n<dt>15 a 22 de Setembro<\/dt><dd>Semana para in\u00edcio das aulas da Turma 7 em todo o Brasil<\/dd>\r\n<dt>30 de Setembro<\/dt><dd>Prazo final para envio de cadastro com pedido de apostilas da Turma 8<\/dd>\r\n<dt>13 a 20 de Outubro<\/dt><dd>Semana para in\u00edcio das aulas da Turma 8 em todo o Brasil<\/dd>\r\n<dt>31 de Outubro<\/dt><dd>Prazo final para envio de cadastro com pedido de apostilas da\r\nTurma 9<\/dd>\r\n<dt>10 a 17 de Novembro<\/dt><dd>Semana para in\u00edcio das aulas da Turma 9 em todo o Brasil\r\n<\/dd>\r\n\r\n<\/dl>\r\n\r\n<h2>Mapa das Turmas formadas at\u00e9 o momento<\/h2>\r\n\r\n<p>**Link ou bot\u00e3o com acesso ao mapa\r\nPerguntas mais freq\u00fcentes sobre o Curso de Finan\u00e7as Pessoais da Incentivo<\/p>\r\n\r\n<p>\r\n1) Qual \u00e9 a dura\u00e7\u00e3o do Curso de Finan\u00e7as Pessoais da Incentivo?\r\nR. O Curso tem dura\u00e7\u00e3o de 06 (seis) semanas, sendo 01 (uma) aula por semana.\r\n\r\n2) Qual \u00e9 o tempo de dura\u00e7\u00e3o de cada aula?\r\nR. Cada aula dura aproximadamente 1h (uma hora), n\u00e3o devendo durar mais de\r\n1h30 (uma hora e trinta minutos).\r\n\r\n3) Somente membros da Igreja de Jesus Cristo dos Santos dos \u00daltimos\r\nDias podem participar do Curso?\r\nR. N\u00e3o. Todos s\u00e3o convidados a participar do Curso.\r\n\r\n4) Como posso me tornar um instrutor volunt\u00e1rio do Curso de\r\nFinan\u00e7as Pessoais?\r\nR. Para ser um professor volunt\u00e1rio, \u00e9 necess\u00e1rio estudar toda a apostila do\r\ncurso e aplicar os ensinamentos do curso em sua pr\u00f3pria vida. Depois, deve entrar\r\nem contato conosco atrav\u00e9s do e-mail financas@incentivo.org.br  e preencher\r\num cadastro.\r\n\r\n5) O que devo fazer para receber a apostila do Curso?\r\nR. Para acessar o conte\u00fado da apostila, clique no bot\u00e3o seguinte:\r\nhttp:\/\/www.incentivo.org.br\/Personal_Finance_Lessons\/Palestras_Financas_Pessoais.pdf\r\n  (*** Criar um bot\u00e3o para ir \u00e0 apostila***)\r\n\r\nQualquer pessoa pode baixar o conte\u00fado da apostila atrav\u00e9s do link acima.\r\nEnviamos as apostilas gratuitamente pelo correio somente quando uma turma\r\nest\u00e1 formada.\r\n\r\n6) Quanto custa a apostila?\r\nR. A apostila \u00e9 gratuita.\r\n\r\n7) Quem completa o curso recebe um Certificado de Conclus\u00e3o?\r\nR. Sim, desde que participe de todas as aulas e envie o question\u00e1rio de avalia\u00e7\u00e3o\r\nao final do curso.\r\n<\/p>\r\n \r\n<p>\r\n*** Acho que seria melhor os recursos abaixo estarem dispostos em um menu\r\nseparado ***\r\n<\/p>\r\n\r\n \r\n<h2>Recursos aos Alunos<\/h2>\r\n\r\n<ul>\r\n<li>Modelo de Certificado do Curso<\/li>\r\n<li>Testes<\/li>\r\n<li>Cr\u00edticas e Sugest\u00f5es do Aluno     ***(link para enviar e-mail para finan\u00e7as@incentivo.org.br)***<\/lu>\r\n<li>Hist\u00f3rias de Sucesso<\/lu>\r\n    <ul>\r\n    <li>Fotos<\/li>\r\n    <\/ul>\r\n<li>Arquivos Importantes<\/li>\r\n    <ul>\r\n    <li>Or\u00e7amento<\/li>\r\n    <li>Tabela de Elimina\u00e7\u00e3o de D\u00edvidas<\/li>\r\n    <li>Tabela de Poupan\u00e7a<\/li>\r\n    <li>Lista de Compras<\/li>\r\n    <\/ul>\r\n<\/ul>\r\n\r\n<h2>Recursos aos Instrutores<\/h2>\r\n\r\n<ul>\r\n<li>Apostila do Professor<\/li>\r\n<li>Cr\u00edticas e Sugest\u00f5es do Instrutor    ***(link para enviar e-mail para finan\u00e7as@incentivo.org.br)***<\/li>\r\n<li>Arquivos Importantes<\/li>\r\n  <ul>\r\n  <li>Modelo de An\u00fancio do Curso<\/li>\r\n  <li>Cadastro Pr\u00e9vio da Turma<\/li>\r\n  <li>Lista de Presen\u00e7a (Modelo)<\/li>\r\n  <\/ul>\r\n<\/ul>\r\n \r\n<h2>Recursos Adicionais<\/h2>\r\n\r\n<ul>\r\n<li>Links: Artigos sobre Finan\u00e7as Pessoais<\/li>\r\n<li>Links: Websites sobre Finan\u00e7as Pessoais<\/li>\r\n<\/ul>\r\n", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Financas Pessoais Calendario", 
+            "url": "\/financas-pessoais\/calendar", 
+            "template_name": "flatpages\/financas-pessoais-calendario.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<div id=\"my-timeline\" style=\"height: 150px; border: 1px solid #aaa\"><\/div>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Financas Pessoais FAQ", 
+            "url": "\/financas-pessoais\/faq\/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "Lorem ipsum.", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": " ", 
+            "url": "\/home\/", 
+            "template_name": "flatpages\/default.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<p>\r\nA Associa\u00e7\u00e3o Brasileira Incentivo \u00e9 uma organiza\u00e7\u00e3o n\u00e3o governamental (ONG), criada para ajudar as pessoas educa\u00e7\u00e3o e ajuda de mentores. Acreditamos que incentivando a educa\u00e7\u00e3o e o trabalho, os indiv\u00edduos podem vencer seus desafios e melhorar seu bem-estar...\r\n<\/p>\r\n\r\n<p>\r\n   <a href=\"\/quem-somos\/\">saiba mais<\/a>\r\n<\/p>\r\n\r\n<div id=\"content-secondary\">\r\n  <h2>Not\u00edcias<\/h2>\r\n  <p>Not\u00edcias sobre a Incentivo<\/p>\r\n<\/div>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Passar Adiante", 
+            "url": "\/passar-adiante\/", 
+            "template_name": "flatpages\/default.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<h2>Modelo de Cadastro a ser enviado<\/h2>\r\n\r\n<p>\r\nCADASTRO PR\u00c9VIO para forma\u00e7\u00e3o de turma.\r\n<\/p>\r\n\r\n<pre>\r\nNome completo do Instrutor:\r\nData de nascimento:\r\nEstado Civil:\r\nN\u00ba de filhos:\r\nProfiss\u00e3o:\r\nEscolaridade:\r\nEndere\u00e7o completo:\r\nTelefones para contato:\r\nE-mail:\r\nMSN Messenger:\r\nID Skype:\r\nComo soube da Incentivo:\r\nLocal do Curso:\r\nFazer uma lista com os nomes dos alunos colocando os nomes um abaixo do outro.\r\nNome dos alunos (com e-mail e telefone):\r\nExemplo:\r\n1) Jos\u00e9 da Silva - jose@email.com.br - Tel: (11) 5544 2233\r\n2) Silvio Souza - silvio@email.com.br - Tel: (11) 5544 2233\r\n<\/pre>\r\n\r\n", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Prepara\u00e7\u00e3o para MBA", 
+            "url": "\/preparacao-para-mba\/", 
+            "template_name": "flatpages\/default.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<h2>Objetivo<\/h2>\r\n<p>Encontrar, preparar e ajudar candidatos para o MBA na BYU atrav\u00e9s da Bolsa Internacional   Cardon.<\/p>\r\n\r\n<h2>Qualifica\u00e7\u00f5es do candidato<\/h2>\r\n<p>A Incentivo patrocina grupos regionais de prepara\u00e7\u00e3o para o   MBA atrav\u00e9s de aulas focadas em 6 \u00e1reas: <\/p>\r\n<ol>\r\n<li>Informa\u00e7\u00f5es sobre o MBA na BYU <\/li>\r\n<li>Ajuda com os pr\u00e9-requisitos\r\n<ul>\r\n<li>Exame do Toefl <\/li>\r\n<li>Exame do GMAT <\/li>\r\n<\/ul>\r\n<\/li>\r\n<li>Cartas de recomenda\u00e7\u00e3o <\/li>\r\n<li>Cartas de indica\u00e7\u00f5es pessoais (Essays) <\/li>\r\n<li>Como melhorar o curr\u00edculo <\/li>\r\n<li>\r\n<p>\r\nBolsa Internacional Cardon (CIS): <a href=\"http:\/\/marriottschool.byu.edu\/mba\/cis\/cis.cfm\">http:\/\/marriottschool.byu.edu\/mba\/cis\/cis.cfm<\/a> <\/p>\r\n<\/li>\r\n<\/ol>\r\n\r\n<p>A Incentivo est\u00e1 oferecendo um <a href=\"Gmat.htm\">curso de GMAT<\/a> a baixo custo em <a href=\"Gmat-Sao%20Paulo.htm\">S\u00e3o Paulo<\/a>, <a href=\"Gmat-Campinas.htm\">Campinas<\/a>, <a href=\"Gmat-Curitiba.htm\">Curitiba<\/a>, <a href=\"Gmat-Guarulhos.htm\">Guarulhos<\/a>, e <a href=\"Gmat-Rio%20de%20Janeiro.htm\">Rio de Janeiro<\/a>. A primeira aula come\u00e7ar\u00e1 no   dia 20 de fevereiro de 2007.<\/p>\r\n\r\n<h2>Como \u00e9 poss\u00edvel pagar meu   MBA?<\/h2>\r\n\r\n<h3>Bolsa Internacional Cardon.<\/h3>\r\n\r\n<p>Atrav\u00e9s da Bolsa Internacional Cardon s\u00e3o reservadas todos os   anos 10 vagas para brasileiros; A bolsa concede gratuitamente o valor do curso e   do seguro sa\u00fade e concede um empr\u00e9stimo para as despesas mensais da fam\u00edlia   (moradia e alimenta\u00e7\u00e3o), o qual dever\u00e1 ser devolvido ap\u00f3s 6 meses do t\u00e9rmino do   curso no prazo de 10 anos.<\/p>\r\n\r\n<h3>Como voc\u00ea pode participar do programa?<\/h3>\r\n\r\n<p>A Incentivo est\u00e1 interessada em encontrar pessoas que   querem se preparar para fazer o MBA na BYU. Se voc\u00ea quer participar das aulas e   ser parte de um grupo de estudo da sua regi\u00e3o, por favor, envie um e-mail para <a href=\"https:\/\/mail.google.com\/a\/16cards.com\/?view=cm&amp;tf=0&amp;to=mba@incentivo.org.br\">mba@incentivo.org.br<\/a><\/p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Preparacao para MBA FAQ", 
+            "url": "\/preparacao-para-mba\/faq\/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "Lorem ipsum.", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Quem Somos", 
+            "url": "\/quem-somos\/", 
+            "template_name": "flatpages\/quem-somos.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<p>Associa\u00e7\u00e3o Brasileira Incentivo \u00e9 uma organiza\u00e7\u00e3o n\u00e3o governamental (ONG) criada para ajudar as pessoas a melhorar suas vidas por meio da educa\u00e7\u00e3o e ajuda de mentores. Acreditamos que incentivando a educa\u00e7\u00e3o e o trabalho, indiv\u00edduos podem vencer seus desafios e melhorar seu bem-estar. A Incentivo conta com o trabalho volunt\u00e1rio para poder alcan\u00e7ar as suas metas e assim avan\u00e7ar a obra de compartilhar conhecimento e experi\u00eancia. Esses indiv\u00edduos constroem o alicerce da Incentivo e abrem caminhos que facilitam o progresso da iniciativo.<\/p>\r\n\r\n<h2>Miss\u00e3o<\/h2>\r\n<p>Nossa miss\u00e3o \u00e9 ajudar todos aqueles que t\u00eam o desejo de desenvolver-se profissional, educacional e pessoalmente a alcan\u00e7ar seus objetivos. Fornecemos as ferramentas necess\u00e1rias para que os indiv\u00edduos possam alcan\u00e7ar suas metas pessoais por meio de esfor\u00e7o pr\u00f3prio e trabalho \u00e1rduo. Tendo a filosofia Pay it Forward como a base da Incentivo, procuramos ajudar o maior n\u00famero de indiv\u00edduos poss\u00edvel.<\/p>\r\n\r\n<h2>Pessoas<\/h2>\r\n<p>A Incentivo utiliza diversos volunt\u00e1rios que dedicam o seu tempo e talentos para poder avan\u00e7ar este trabalho. Al\u00e9m do seu trabalho volunt\u00e1rio, esses indiv\u00edduos equilibram responsabilidades no trabalho, faculdade e fam\u00edlia. Acreditamos na filosofia Pay it Forward e convidamos todos a adotar este esp\u00edrito de colabora\u00e7\u00e3o<\/p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Historia de Successo", 
+            "url": "\/successo\/", 
+            "template_name": "flatpages\/default.html", 
+            "sites": [
+                1
+            ], 
+            "content": "<p>Lorem ipsum. <\/p>", 
+            "enable_comments": false
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "flatpages.flatpage", 
+        "fields": {
+            "registration_required": false, 
+            "title": "Volunt&aacute;rios", 
+            "url": "\/voluntarios\/", 
+            "template_name": "", 
+            "sites": [
+                1
+            ], 
+            "content": "Lorum ipsum.", 
+            "enable_comments": false
+        }
+    }
+]

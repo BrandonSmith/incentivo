@@ -1,0 +1,43 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-09 12:17-0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: bolsa/templates/apply.html:10
+msgid "Participant Requirements"
+msgstr ""
+
+#: bolsa/templates/apply.html:13
+msgid "Congradulations"
+msgstr ""
+
+#: bolsa/templates/apply.html:23
+msgid "ATTENTION"
+msgstr ""
+
+#: bolsa/templates/apply.html:25
+msgid ""
+"\n"
+"Before completing the form you must have the following information on hand:\n"
+msgstr "Antes de preencher o formulário você deve ter as seguintes informações em mão:"
+
+#: forum/models.py:70
+msgid "Forum parents"
+msgstr ""
+
+#: forum/models.py:104
+msgid "You must not save a forum in itself!"
+msgstr ""

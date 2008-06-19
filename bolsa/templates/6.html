@@ -1,0 +1,29 @@
+{% extends "bolsa/templates/application-wide.html" %}
+
+{% block page %}bolsa-de-estudo{% endblock %}
+
+{% block title %}Bolsa de Estudos Incentivo Contrato{% endblock %}
+
+{% block body %}
+<div id="form_container">
+    <div class="form_description">
+        <p>Eu entendo e concordo com a filosofia da Incentivo de: <i>"Ajudar todos aqueles que têm o desejo de desenvolver-se profissional, educacional e pessoalmente a alcançar seus objetivos. Fornecemos as ferramentas necessárias para que os indivíduos possam alcançar suas metas pessoais por meio de esforço próprio e trabalho árduo. Tendo a filosofia Pay it Forward (Passar Adiante) como a base da Incentivo, procuramos ajudar o maior número de indivíduos possível."</i> Caso que eu seja aprovado para receber uma bolsa e participar do programa Bolsa de Estudos da Incentivo, eu me comprometo a cumprir a missão da Incentivo e <i><b>Passar Adiante</b></i> o incentivo recebido e incorporar na minha vida a filosofia da Incentivo.</p>
+    </div>
+    <form id="form_43114" class="appnitro"  method="post" action="">
+        <ul >
+            <li id="li_1" >
+                <label class="description" for="element_1"> </label>
+                <span>
+                    <input id="element_1_1" name="element_1" class="element radio" type="radio" value="1" />
+                    <label class="choice" for="element_1_1">Sim, comprometo-me a retribuir o conhecimento ganho por meio deste programa e incorporar a filosofia "Passar Adiante" na minha vida</label>
+                    <input id="element_1_2" name="element_1" class="element radio" type="radio" value="2" />
+                    <label class="choice" for="element_1_2">Não, não quero comprometer-me neste momento</label>
+                </span> 
+            </li>
+            <li class="buttons">
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
+            </li>
+        </ul>
+    </form>	
+</div>
+{% endblock %}

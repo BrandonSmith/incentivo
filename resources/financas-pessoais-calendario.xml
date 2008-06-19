@@ -1,0 +1,65 @@
+<data>
+    <event start="Feb 28 2007" title="Turma 2">
+        Razo final para envio de cadastro com pedido de apostilas da Turma 2
+    </event>
+        
+    <event start="Mar 17 2007" end="Mar 24 2007" isDuration="true" title="Início das aulas da Turma 2">
+        Semana para início das aulas da Turma 2 em todo o Brasil
+    </event>
+    
+	<event start="Mar 31 2007 00:00:00 GMT" title="Turma 3">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 3
+    </event>
+        
+    <event start="Apr 21 2007 00:00:00 GMT" end="Apr 28 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 3">
+        Semana para início das aulas da Turma 3 em todo o Brasil
+    </event>
+    
+	<event start="Apr 30 2007 00:00:00 GMT" title="Turma 4">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 4
+    </event>
+    
+    <event start="May 19 2007 00:00:00 GMT" end="May 26 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 4">
+        Semana para início das aulas da Turma 4 em todo o Brasil
+    </event>
+    
+	<event start="May 31 2007 00:00:00 GMT" title="Turma 5">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 5
+    </event>
+    
+    <event start="Jun 16 2007 00:00:00 GMT" end="Jun 23 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 5">
+        Semana para início das aulas da Turma 5 em todo o Brasil
+    </event>
+    
+	<event start="Jul 31 2007 00:00:00 GMT" title="Turma 6">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 6
+    </event>
+    
+    <event start="Aug 18 2007 00:00:00 GMT" end="Aug 25 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 6">
+        Semana para início das aulas da Turma 6 em todo o Brasil
+    </event>
+    
+	<event start="Aug 31 2007 00:00:00 GMT" title="Turma 7">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 7
+    </event>
+    
+    <event start="Sep 15 2007 00:00:00 GMT" end="Sep 22 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 7">
+        Semana para início das aulas da Turma 7 em todo o Brasil
+    </event>
+    
+	<event start="Sep 30 2007 00:00:00 GMT" title="Turma 8">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 8
+    </event>
+    
+    <event start="Oct 13 2007 00:00:00 GMT" end="Oct 20 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 8">
+        Semana para início das aulas da Turma 8 em todo o Brasil
+    </event>
+    
+	<event start="Oct 31 2007 00:00:00 GMT" title="Turma 9">
+        Prazo final para envio de cadastro com pedido de apostilas da Turma 9
+    </event>
+    
+    <event start="Nov 10 2007 00:00:00 GMT" end="Nov 17 2007 00:00:00 GMT" isDuraction="true" title="Início das aulas da Turma 9">
+        Semana para início das aulas da Turma 9 em todo o Brasil
+    </event>
+</data>

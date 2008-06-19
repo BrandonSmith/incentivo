@@ -1,0 +1,237 @@
+{% extends "bolsa/templates/application-wide.html" %}
+
+{% block page %}bolsa-de-estudo{% endblock %}
+
+{% block title %}SEÇÃO UM: Você e Sua Família{% endblock %}
+
+{% block body %}
+<div id="form_container">
+    <div class="form_description">
+        <p>O primeiro passo é fornecer informações básicas. Favor preencher os espaços que dizem respeito a você.</p>
+    </div>
+    
+    <!-- errors 
+    {% if form.errors %}
+        {% for error in form.errors %}
+            
+        {% endfor %}
+        {{ form.errors }}
+    {% endif %}
+    -->
+    
+    <form id="applicant" class="appnitro"  method="post" action="">		
+        <ul>			
+            <li class="section_break">
+                <h3>Informações Pessoais</h3>
+                <p></p>
+            </li>
+            
+            <li{% if form.errors.last_name %} class="error"{% endif %}>
+                {{ form.last_name.label_tag }}
+                <div class="text medium">
+                    {{ form.last_name }}
+                    {% if form.last_name.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="last_name_guide"><small>{{ form.last_name.help_text }}</small></p>
+            </li>
+            
+            <li{% if form.errors.first_name %} class="error"{% endif %}>
+                {{ form.first_name.label_tag }}
+                <div class="text medium">
+                    {{ form.first_name }}
+                    {% if form.first_name.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="first_name_guide"><small>{{ form.first_name.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.middle_name %} class="error"{% endif %}>
+                {{ form.middle_name.label_tag }}
+                <div class="text medium">
+                    {{ form.middle_name }}
+                    {% if form.middle_name.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+            </li>
+            
+            <li{% if form.errors.gender %} class="error"{% endif %}>
+                {{ form.gender.label_tag }}
+                <span class="radio choices">
+                    <input id="gender_male" name="gender" type="radio" value="M"{% ifequal form.gender.data "M" %}checked="checked"{% endifequal %}/>
+                    <label for="gender_male">M</label>
+                    <input id="gender_female" name="gender" type="radio" value="F"{% ifequal form.gender.data "F" %} checked="checked"{% endifequal %}/>
+                    <label for="gender_female">F</label>
+                </span> 
+            </li>
+            
+            <li{% if form.errors.birthdate %} class="error"{% endif %}>
+                {{ form.birthdate.label_tag }}
+                <span class="text">
+                    <input id="birthdate_day" name="birthdate_day" size="2" maxlength="2" value="{% if birthdate %}{{ birthdate.day }}{% endif %}" type="text"> /
+                    <label for="birthdate_day">dia</label>
+                </span>
+                <span>
+                    <input id="birthdate_month" name="birthdate_month" class="element text" size="2" maxlength="2" value="{% if birthdate %}{{ birthdate.month }}{% endif %}" type="text"> /
+                    <label for="birthdate_month">mês</label>
+                </span>
+                <span>
+                    <input id="birthdate_year" name="birthdate_year" class="element text" size="4" maxlength="4" value="{% if birthdate %}{{ birthdate.year }}{% endif %}" type="text">
+                    <label for="birthdate_year">ano</label>
+                </span>
+                <span id="calendar_4">
+                    <img id="cal_img_4" class="datepicker" src="/resources/images/calendar.gif" alt="Escolha uma data">	
+                    {% if form.birthdate.field.required %}<span class="required">*</span>{% endif %}
+                </span>
+                <p class="guidelines" id="guide_4"><small>{{ form.birthdate.help_text }}</small></p> 
+            </li>
+            
+            <li>
+                <label class="description">Endereço residencial</label>	
+                <div class="text large{% if form.errors.address %} error{% endif %}">
+                    {{ form.address }}
+                    {% if form.address.field.required %}<span class="required">*</span>{% endif %}
+                    {{ form.address.label_tag }}
+                </div>
+                <div class="text large{% if form.errors.address2 %} error{% endif %}">
+                    {{ form.address2 }}
+                    {% if form.address.field.required %}<span class="required">*</span>{% endif %}
+                    {{ form.address2.label_tag }}
+                </div>
+                <div class="left text medium{% if form.errors.city %} error{% endif %}">
+                    {{ form.city }}
+                    {% if form.city.field.required %}<span class="required">*</span>{% endif %}
+                    {{ form.city.label_tag }}
+                </div>
+                <div class="right text medium{% if form.errors.state %} error{% endif %}">
+                    {{ form.state }}
+                    {% if form.state.field.required %}<span class="required">*</span>{% endif %}
+                    {{ form.state.label_tag }}
+                </div>
+                <div class="left text medium{% if form.errors.zip_code %} error{% endif %}">
+                    {{ form.zip_code }}
+                    {% if form.zip_code.field.required %}<span class="required">*</span>{% endif %}
+                    {{ form.zip_code.label_tag }}
+                </div>
+                <div class="right select medium{% if form.errors.country %} error{% endif %}">
+                    {{ form.country }}
+                    {% if form.country.field.required %}<span class="required">*</span>{% endif %}
+                    {{ form.country.label_tag }}
+                </div> 
+            </li>
+            
+            <li{% if form.errors.email %} class="error"{% endif %}>
+                {{ form.email.label_tag }}
+                <div class="text medium">
+                    {{ form.email }}
+                    {% if form.email.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="email_guide"><small>Favor preencher o campo “E-mail”</small></p> 
+            </li>
+            
+            <li{% if form.errors.email2 %} class="error"{% endif %}>
+                {{ form.email2.label_tag }}
+                <div class="text medium">
+                    {{ form.email2 }}
+                    {% if form.email2.field.required %}<span class="required">*</span>{% endif %}
+                </div> 
+            </li>
+            
+            <li{% if form.errors.home_telephone %} class="error"{% endif %}>
+                {{ form.home_telephone.label_tag }}
+                <div class="text medium">
+                    {{ form.home_telephone }}
+                    {% if form.home_telephone.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_9"><small>{{ form.home_telephone.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.business_telephone %} class="error"{% endif %}>
+                {{ form.business_telephone.label_tag }}
+                <div>
+                    {{ form.business_telephone }}
+                    {% if form.business_telephone.field.required %}<span class="required">*</span>{% endif %}
+                </div> 
+            </li>
+            
+            <li class="section_break">
+                <h3>Informações Familiares</h3>
+                <p></p>
+            </li>
+            
+            <li{% if form.errors.married %} class="error"{% endif %}>
+                {{ form.married.label_tag }}
+                {% if form.married.field.required %}<span class="required">*</span>{% endif %}
+                <span class="radio choices">
+                    <input id="married_yes" name="married" type="radio" value="1"{% ifequal form.married.data "1" %}checked="checked"{% endifequal %} />
+                    <label class="choice" for="married_yes">Solteiro</label>
+                    <input id="married_no" name="married" type="radio" value="0"{% ifequal form.married.data "0" %} checked="checked"{% endifequal %} />
+                    <label class="choice" for="married_no">Casado</label>
+                </span> 
+            </li>
+            
+            
+            <li{% if form.errors.head_of_household %} class="error"{% endif %}>
+                {{ form.head_of_household.label_tag }}
+                {% if form.head_of_household.field.required %}<span class="required">*</span>{% endif %}
+                <span class="radio choices">
+                    <input id="head_of_household_yes" name="head_of_household" type="radio" value="1"{% ifequal form.head_of_household.data "1" %}checked="checked"{% endifequal %} />
+                    <label class="choice" for="head_of_household_yes">Sim</label>
+                    <input id="head_of_household_no" name="head_of_household" type="radio" value="0"{% ifequal form.head_of_household.data "0" %}checked="checked"{% endifequal %} />
+                    <label class="choice" for="head_of_household_no">Não</label>
+                </span> 
+            </li>
+            
+            <li{% if form.errors.number_of_children %} class="error"{% endif %}>
+                {{ form.number_of_children.label_tag }}
+                <div class="text small">
+                    {{ form.number_of_children }}
+                    {% if form.number_of_children.field.required %}<span class="required">*</span>{% endif %}
+                </div> 
+            </li>
+            
+            <li class="section_break">
+                <h3>Informações de Emergência</h3>
+                <p></p>
+            </li>
+            
+            <li{% if form.errors.emergency_name %} class="error"{% endif %}>
+                {{ form.emergency_name.label_tag }}
+                <div class="text large">
+                    {{ form.emergency_name }}
+                    {% if form.emergency_name.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_14"><small>{{ form.emergency_name.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.emergency_email %} class="error"{% endif %}>
+                {{ form.emergency_email.label_tag }}
+                <div class="text medium">
+                    {{ form.emergency_email }}
+                    {% if form.emergency_email.field.required %}<span class="required">*</span>{% endif %}
+                </div> 
+            </li>
+            
+            <li{% if form.errors.emergency_phone %} class="error"{% endif %}>
+                {{ form.emergency_phone.label_tag }}
+                <div class="text medium">
+                    {{ form.emergency_phone }}
+                    {% if form.emergency_phone.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_16"><small>{{ form.emergency_phone.help_text }}</small></p> 
+            </li>
+            
+            <li class="buttons">
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Próxima página" />
+            </li>
+        </ul>
+    </form>
+</div>
+<script type="text/javascript">
+    Calendar.setup({
+    inputField  : "birthdate_year",
+    baseField   : "birthdate",
+    displayArea : "calendar_4",
+    button      : "cal_img_4",
+    ifFormat    : "%B %e, %Y",
+    onSelect    : selectEuropeDate
+    });
+</script>
+{% endblock %}

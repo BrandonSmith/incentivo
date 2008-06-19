@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Associa&ccedil;&atilde;o Brasileira Incentivo - {{ flatpage.title }}</title>
+	<link media="screen" type="text/css" rel="stylesheet" href="/resources/css/homepage.css"/>
+	<link media="screen" type="text/css" rel="stylesheet" href="/resources/css/diagram.css"/>
+	<script type="text/javascript" src="/resources/scripts/hover.js"></script>
+</head>
+
+<body id="{% block page %}home{% endblock%}">
+	<div id="banner">
+		<div id="nav-global-container">
+			<ul id="nav-global">
+				<li id="nav-contact"><a href="/contact/">Contato</a></li><li>|</li>
+				<!-- <li id="nav-history"><a href="/historia/">Histori&aacute;</a></li><li>|</li> -->
+				<li id="nav-background"><a href="/quem-somos/">Quem somos</a></li><li>|</li>
+				<li id="nav-home"><a href="/home/">Home</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="container">
+		
+		<div id="header">
+			
+			<h1 id="logo"><a href="/home/"><img alt="Incentivo" src="/resources/images/title.gif"/></a></h1>
+			
+			<div id="nav-sub-container">
+				<ul id="nav-sub">
+				<li id="first"><div>Programas</div>
+					<ul>
+					<li><a href="/bolsa-de-estudo/">Bolsa de Estudo</a></li>
+					<li><a href="/financas-pessoais/">Finan&ccedil;as Pessoais</a></li>
+					<li><a href="/preparacao-para-mba/">Prepara&ccedil;&atilde;o para MBA</a></li>
+					</ul>
+				</li>
+				<li><div>Filosofia</div>
+					<ul>
+					<li><a href="/passar-adiante/">Passar adiante</a></li>
+					<li><a href="/successo/">Hist&oacute;ria de successo</a></li>
+					<li><a href="/voluntarios/">Volunt&aacute;rios</a></li>
+					</ul>
+				</li>
+				<!--
+				<li id="last"><div>Forums</div>
+					<ul>
+					<li><a href="/forums/">Bolsa</a></li>
+					<li><a href="/forums/">Financas</a></li>
+					<li><a href="/forums/">MBA</a></li>
+					</ul>
+				</li>
+			    -->
+				</ul>
+			</div>
+		</div>
+		
+		<div id="billboard"><h2>Incentivo</h2></div>
+		
+		<div id="columnwrap">
+			
+			<div id="content-main">
+				{% block content %}
+				<h1>
+				{% if flatpage.title.strip %}
+					{{ flatpage.title }}
+				{% else %}
+					Associa&ccedil;&atilde;o Brasileira Incentivo
+				{% endif %}
+				</h1>
+				{{ flatpage.content }}
+				{% endblock %}
+				{% block extracontent %}{% endblock %}
+			</div>
+			
+			<div class="sidebar" id="content-related">
+				<h2>{% block sidebartitle %}{% endblock %}</h2>
+				{% block sidebarbefore %}{% endblock %}
+				<p>{% block sidebarcontent %}{% endblock %}</p>
+				{% block sidebarlinks %}{% endblock %}
+			    {% block sidebarsublinks %}{% endblock %}
+				{% block sidebarafter %}{% endblock %}
+			</div>
+		
+		</div>
+		
+		<div id="footer">
+			<p>
+				&copy; 2005-2007 Associa&ccedil;&atilde;o Brasileira Incentivo. Todos os direitos
+				reservados.
+			</p>
+		</div>
+		
+	</div>
+
+</body>
+</html>

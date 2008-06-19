@@ -1,0 +1,116 @@
+{% extends "bolsa/templates/application-wide.html" %}
+
+{% block page %}bolsa-de-estudo{% endblock %}
+
+{% block title %}SEÇÃO QUATRO: Informação do Estabelecimento de Ensin{% endblock %}
+
+{% block body %}
+<div id="form_container">
+    <div class="form_description">
+        <p>Estabelecimento de Ensino de sua escolha (precisará falar com alguém do estabelecimento para obter informação sobre o custo do curso) </p>
+    </div>	
+    <form id="applicantschool" class="appnitro"  method="post" action="">
+        <ul>
+        
+            <li{% if form.errors.school_name %} class="error"{% endif %}>
+                {{ form.school_name.label_tag }}
+                <div class="text medium">
+                    {{ form.school_name }}
+                    {% if form.school_name.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_1"><small>{{ form.school_name.help_text }}</small></p> 
+            </li>
+        
+            <li{% if form.errors.program_name %} class="error"{% endif %}>
+                {{ form.program_name.label_tag }}
+                <div class="text medium">
+                    {{ form.program_name }}
+                    {% if form.program_name.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_2"><small>{{ form.program_name.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.program_duration %} class="error"{% endif %}>
+                {{ form.program_duration.label_tag }}
+                <div class="text small">
+                    {{ form.program_duration }}
+                    {% if form.program_duration.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_3"><small>{{ form.program_duration.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.program_start_date %} class="error"{% endif %}>
+                {{ form.program_start_date.label_tag }}
+                <span class="text">
+                    <input id="program_start_date_day" name="program_start_date_day" size="2" maxlength="2" value="{% if program_start_date %}{{ program_start_date.day }}{% endif %}" type="text"> /
+                    <label for="program_start_date_day">dia</label>
+                </span>
+                <span class="text">
+                    <input id="program_start_date_month" name="program_start_date_month" size="2" maxlength="2" value="{% if program_start_date %}{{ program_start_date.month }}{% endif %}" type="text"> /
+                    <label for="program_start_date_month">mês</label>
+                </span>
+                <span class="text">
+                    <input id="program_start_date_year" name="program_start_date_year" size="4" maxlength="4" value="{% if program_start_date %}{{ program_start_date.year }}{% endif %}" type="text">
+                    <label for="program_start_date_year">ano</label>
+                </span>
+                <span id="program_start_date_calendar">
+                    <img id="program_start_date_img" class="datepicker" src="/resources/images/calendar.gif" alt="Escolha uma data">
+                    {% if form.program_start_date.field.required %}<span class="required">*</span>{% endif %}
+                </span>
+                <p class="guidelines" id="guide_4"><small>{{ form.program_start_date.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.program_cost %} class="error"{% endif %}>
+                {{ form.program_cost.label_tag }}
+                <div class="text small">
+                    {{ form.program_cost }}
+                    {% if form.program_cost.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_6"><small>{{ form.program_cost.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.program_city %} class="error"{% endif %}>
+                {{ form.program_city.label_tag }}
+                <div class="text medium">
+                    {{ form.program_city }}
+                    {% if form.program_city.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_6"><small>{{ form.program_city.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.pay_half %} class="error"{% endif %}>
+                {{ form.pay_half.label_tag }}
+                {% if form.pay_half.field.required %}<span class="required">*</span>{% endif %}
+                <span class="radio choices">
+                    <input id="pay_half_yes" name="pay_half_yes" type="radio" value="1"{% ifequal form.pay_half.data "1" %}checked="checked"{% endifequal %} />
+                    <label class="choice" for="pay_half_yes">Sim</label>
+                    <input id="pay_half_no" name="pay_half_no" type="radio" value="0"{% ifequal form.pay_half.data "0" %}checked="checked"{% endifequal %} />
+                    <label class="choice" for="pay_half_no">Não</label>
+                </span> 
+            </li>		
+            
+            <li{% if form.errors.program_url %} class="error"{% endif %}>
+                {{ form.program_url.label_tag }}
+                <div class="text large">
+                    {{ form.program_url }}
+                    {% if form.program_url.field.required %}<span class="required">*</span>{% endif %}
+                </div> 
+            </li>
+            
+            <li class="buttons">
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Próxima página" />
+            </li>
+        </ul>
+    </form>	
+</div>
+<script type="text/javascript">
+    Calendar.setup({
+    inputField	 : "program_start_date_year",
+    baseField    : "program_start_date",
+    displayArea  : "program_start_date_calendar",
+    button		 : "program_start_date_img",
+    ifFormat	 : "%B %e, %Y",
+    onSelect	 : selectEuropeDate
+    });
+</script>
+{% endblock %}

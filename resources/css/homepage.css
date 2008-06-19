@@ -1,0 +1,12 @@
+@import "modified.css";
+.button-download {
+background:transparent url(/resources/images/button-left.gif) no-repeat scroll 0%;
+display:block;
+}
+.button-download a {
+background:transparent url(/resources/images/button-right.gif) no-repeat scroll right top;
+display:block;
+height:18px;
+padding:6px 12px;
+white-space:nowrap;
+}

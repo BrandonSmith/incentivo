@@ -1,0 +1,128 @@
+{% extends "bolsa/templates/application-wide.html" %}
+
+{% block page %}bolsa-de-estudo{% endblock %}
+
+{% block title %}SEÇÃO QUATRO: Seu Compromisso Pessoal e a Aprovaç{% endblock %}
+
+{% block body %}
+<div id="form_container">
+    <div class="form_description">
+        <p>Está determinado a obter sucesso? Assuma compromisso pessoal e fale com seus líderes do sacerdócio. <b>O candidato é pessoalmente responsável pelo pagamento das despesas pessoais e as despesas relacionadas ao curso; portanto… </b></p>
+        <ul>
+            <li>O candidato primeiramente usará seu próprio dinheiro, proveniente do seu trabalho, e de economias da sua família enquanto estiver na escola.</li>
+            <li>O candidato usará outros programas locais disponíveis para pagar seus estudos, inclusive programas de estudo-trabalho, subsídios e bolsas de estudo, empréstimos educativos ou programas de reembolso educacional.</li>
+            <li>SE o seu próprio dinheiro e os outros recursos não forem suficientes, o candidato poderá solicitar a ajuda da Bolsa Incentivo</li>
+            <li>O candidato solicitará a menor quantia possível a fim de permitir que outros também sejam beneficiados.</li>
+        </ul>
+    </div>
+    <form id="applicantcommitments" class="appnitro"  method="post" action="">
+        <ul>
+            <li class="section_break">
+                <h3>Compromisso Pessoal</h3>
+                <p>Você agora se compromete a cumprir todas as suas obrigações, incluindo as seguintes. Favor marcar cada compromisso e assinar abaixo. </p>
+            </li>
+            
+            <li>
+                <span>
+                    <input id="element_9_1" name="element_9_1" class="element checkbox" type="checkbox" value="1" />
+                    {{ form.moving_forward.label_tag }}
+                </span>
+                <p class="guidelines" id="guide_9"><small>{{ form.moving_forward.help_text }}</small></p> 
+            </li>
+            
+            <li id="li_10">
+                <label class="description" for="element_10"> </label>
+                <span>
+                    <input id="element_10_1" name="element_10_1" class="element checkbox" type="checkbox" value="1" />
+                    <label class="choice" for="element_10_1">Usarei meu próprio dinheiro para pagar tanto quanto me for possível dos custos do meu curso</label>
+                </span>
+                <p class="guidelines" id="guide_10"><small>If not checked then present message “Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser”</small></p> 
+            </li>
+            <li id="li_11">
+                <label class="description" for="element_11"> </label>
+                <span>
+                    <input id="element_11_1" name="element_11_1" class="element checkbox" type="checkbox" value="1" />
+                    <label class="choice" for="element_11_1">Esforçar-me-ei ao máximo para tirar boa notas, frequentar todas as aulas, e aprender todo o material</label>
+                </span>
+                <p class="guidelines" id="guide_11"><small>If not checked then present message “Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser”</small></p> 
+            </li>
+            <li id="li_12">
+                <label class="description" for="element_12"> </label>
+                <span>
+                    <input id="element_12_1" name="element_12_1" class="element checkbox" type="checkbox" value="1" />
+                    <label class="choice" for="element_12_1">Permanecerei ativo na Igreja e digno de possuir uma recomendação ao templo</label>
+                </span><p class="guidelines" id="guide_12"><small>If not checked then present message “Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser”</small></p> 
+            </li>
+            <li id="li_2">
+                <label class="description" for="element_2">Assinatura/Nome (em letra de forma) </label>
+                <div>
+                    <input id="element_2" name="element_2" class="element text medium" type="text" maxlength="255" value=""/> 
+                </div> 
+            </li>
+            <li id="li_3">
+                <label class="description" for="element_3">Data</label>
+                <span>
+                    <input id="element_3_1" name="element_3_1" class="element text" size="2" maxlength="2" value="" type="text"> /
+                    <label for="element_3_1">dia</label>
+                </span>
+                <span>
+                    <input id="element_3_2" name="element_3_2" class="element text" size="2" maxlength="2" value="" type="text"> /
+                    <label for="element_3_2">mês</label>
+                </span>
+                <span>
+                    <input id="element_3_3" name="element_3_3" class="element text" size="4" maxlength="4" value="" type="text">
+                    <label for="element_3_3">ano</label>
+                </span>
+                <span id="calendar_3">
+                    <img id="cal_img_3" class="datepicker" src="/resources/images/calendar.gif" alt="Escolha uma data">	
+                </span>
+            </li>
+            <li class="section_break">
+                <h3>Informação dos Líderes do Sacerdócio</h3>
+                <p></p>
+            </li>
+            <li id="li_5">
+                <label class="description" for="element_5">Ala/Ramo do Candidato  </label>
+                <div>
+                    <input id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
+                </div>
+                <p class="guidelines" id="guide_5"><small>Favor informar o nome da sua ala ou do seu ramo</small></p> 
+            </li>
+            <li id="li_6">
+                <label class="description" for="element_6">Nome do Bispo ou Presidente de Ramo  </label>
+                <div>
+                    <input id="element_6" name="element_6" class="element text medium" type="text" maxlength="255" value=""/> 
+                </div>
+                <p class="guidelines" id="guide_6"><small>Favor informar o nome do seu bispo atual</small></p> 
+            </li>
+            <li id="li_7">
+                <label class="description" for="element_7">Telefone </label>
+                <div>
+                    <input id="element_7" name="element_7" class="element text medium" type="text" maxlength="255" value=""/> 
+                </div>
+                <p class="guidelines" id="guide_7"><small>Favor informar o número de telefone de seu bispo atual</small></p> 
+            </li>
+            <li id="li_8">
+                <label class="description" for="element_8">Comentarios Adicionais (Máximo de 500 caracteres) </label>
+                <div>
+                    <textarea id="element_8" name="element_8" class="element textarea medium"></textarea> 
+                </div> 
+            </li>
+            <li class="buttons">
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Próxima página" />
+            </li>
+        </ul>
+    </form>	
+</div>
+	
+<script type="text/javascript">
+	Calendar.setup({
+	inputField	 : "element_3_3",
+	baseField    : "element_3",
+	displayArea  : "calendar_3",
+	button		 : "cal_img_3",
+	ifFormat	 : "%B %e, %Y",
+	onSelect	 : selectEuropeDate
+	});
+</script>
+{% endblock %}

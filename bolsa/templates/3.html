@@ -1,0 +1,90 @@
+{% extends "bolsa/templates/application-wide.html" %}
+
+{% block page %}bolsa-de-estudo{% endblock %}
+
+{% block title %}SE&Ccedil;&Atilde;O TR&Ecirc;S: Seu Plano de Carreira, Estudo e Passar{% endblock %}
+
+{% block body %}
+<div id="form_container">
+    <div class="form_description">
+        <p>Nesta se&ccedil;&atilde;o voc&ecirc; descrever&aacute; seu plano. Qual curso e estabelecimento vai escolher? Por
+que voc&ecirc; precisa de uma bolsa? Como pretende passar adiante o Incentivo recebido?</p>
+    </div>	
+    
+    
+    
+    
+    
+    
+    <form id="applicantfuture" class="appnitro"  method="post" action="">				
+        <ul>
+            <li class="section_break">
+                <h3>Meu Futuro Emprego</h3>
+                <p></p>
+            </li>
+            
+            <li{% if form.errors.future_employer %} class="error"{% endif %}>
+            {{ form.future_employer.label_tag }}
+            <div class="text large">
+                {{ form.future_employer }}
+                {% if form.future_employer.field.required %}<span class="required">*</span>{% endif %}
+            </div>
+            <p class="guidelines" id="guide_16"><small>{{ form.future_employer.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.future_salary %} class="error"{% endif %}>
+                {{ form.future_salary.label_tag }}
+                <div class="text small">
+                    {{ form.future_salary }}
+                    {% if form.future_salary.field.required %}<span class="required">*</span>{% endif %}
+                </div>
+                <p class="guidelines" id="guide_17"><small>{{ form.future_salary.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.reason %} class="error"{% endif %}>
+                {{ form.reason.label_tag }}
+                {% if form.reason.field.required %}<span class="required">*</span>{% endif %}
+                <div class="textarea medium">
+                    {{ form.reason }}
+                </div>
+                <p class="guidelines" id="guide_18"><small>{{ form.reason.help_text }}</small></p> 
+            </li>
+            
+            <li class="section_break">
+                <h3>Reda&ccedil;&otilde;es</h3>
+                <p></p>
+            </li>
+            
+            <li{% if form.errors.essay_plan %} class="error"{% endif %}>
+                <h3>Reda&ccedil;&atilde;o 1{% if form.essay_plan.field.required %}<span class="required"> *</span>{% endif %}</h3>
+                {{ form.essay_plan.label_tag }}
+                <div class="textarea medium">
+                    {{ form.essay_plan }}
+                </div>
+                <p class="guidelines" id="guide_20"><small>{{ form.essay_plan.help_text }}</small></p> 
+            </li>
+            
+            <li{% if form.errors.essay_reason %} class="error"{% endif %}>
+                <h3>Reda&ccedil;&atilde;o 2{% if form.essay_reason.field.required %}<span class="required"> *</span>{% endif %}</h3>
+                {{ form.essay_reason.label_tag }}
+                <div class="textarea medium">
+                    {{ form.essay_reason }}
+                </div>
+                <p class="guidelines" id="guide_21"><small>{{ form.essay_reason.help_text }}</small></p> 
+            </li>
+            <li{% if form.errors.essay_next %} class="error"{% endif %}>
+                <h3>Reda&ccedil;&atilde;o 3{% if form.essay_next.field.required %}<span class="required"> *</span>{% endif %}</h3>
+                {{ form.essay_next.label_tag }}
+                <div class="textarea medium">
+                    {{ form.essay_next }}
+                </div>
+                <p class="guidelines" id="guide_22"><small>{{ form.essay_next.help_text }}</small></p> 
+            </li>
+        
+            <li class="buttons">
+                <input id="saveForm" class="button_text" type="submit" name="submit" value="Pr&oacute;xima p&aacute;gina" />
+            </li>
+        </ul>
+    </form>	
+</div>
+{% endblock %}
