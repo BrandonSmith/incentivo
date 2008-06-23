@@ -139,15 +139,10 @@ class Wizard(object):
         prev_fields = ''
         if old_data:
             # old data
-            prev_fields = '\n'.join(
-                    bf.as_hidden() for i in range(self.step) for bf in self.get_form(i, old_data)
-                )
+            prev_fields = '\n'.join(bf.as_hidden() for i in range(self.step) for bf in self.get_form(i, old_data))
             # hashes for old forms
             hidden = forms.widgets.HiddenInput()
-            prev_fields += '\n'.join(
-                    hidden.render("hash_%d" % i, old_data.get("hash_%d" % i, self.security_hash(request, self.get_form(i, old_data)))) 
-                        for i in range(self.step) 
-                )
+            prev_fields += '\n'.join(hidden.render("hash_%d" % i, old_data.get("hash_%d" % i, self.security_hash(request, self.get_form(i, old_data)))) for i in range(self.step))
         return self.render_template(request, form, prev_fields)
 
     # METHODS SUBCLASSES MIGHT OVERRIDE IF APPROPRIATE ########################
