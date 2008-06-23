@@ -1,0 +1,15 @@
+
+<li{% if errors %} class="error"{% endif %}>
+    {{ element.label_tag }}
+    <div class="text {% firstof size 'medium' %}">
+        {{ element }}
+        {% if element.field.required %}<span class="required">*</span>{% endif %}
+        {% if element.help_text %}
+        <div class="guidelines" id="{{ element.name }}_guide">
+            {{ element.help_text }}
+        </div>
+        {% endif %}
+        {% if errors %}{{ errors }}{% endif %}
+    </div>
+</li>
+

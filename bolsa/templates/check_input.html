@@ -1,0 +1,12 @@
+
+<li{% if errors %} class="error"{% endif %}>
+    <span class="checkbox">
+    {{ element }} {{ element.label }}
+    </span>
+    {% if element.help_text %}
+    <div class="guidelines" id="{{ element.name }}_guide">
+        {{ element.help_text }}
+    </div>
+    {% endif %}
+</li>
+

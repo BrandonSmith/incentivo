@@ -1,0 +1,43 @@
+
+<li{% if errors %} class="error"{% endif %}>
+    {{ element.label_tag }}
+    <span>
+        <input id="{{ element.name }}_day" name="{{ element.name }}_day" class="element text" size="2" maxlength="2" value="{% if value %}{{ value.day }}{% endif %}" type="text"> /
+        <label for="{{ element.name }}_day">dia</label>
+    </span>
+    <span>
+        <input id="{{ element.name }}_month" name="{{ element.name }}_month" class="element text" size="2" maxlength="2" value="{% if value %}{{ value.month }}{% endif %}" type="text"> /
+        <label for="{{ element.name }}_month">mês</label>
+    </span>
+    <span>
+        <input id="{{ element.name }}_year" name="{{ element.name }}_year" class="element text" size="4" maxlength="4" value="{% if value %}{{ value.year }}{% endif %}" type="text">
+        <label for="{{ element.name }}_year">ano</label>
+    </span>
+    <span id="{{ element.name }}_calendar">
+        <img id="{{ element.name }}_img" class="datepicker" src="/resources/images/calendar.gif" alt="Escolha uma data">	
+        {% if element.field.required %}<span class="required">*</span>{% endif %}
+    </span>
+    {% if element.help_text %}
+    <div class="guidelines" id="{{ element.name }}_guide">
+        {{ element.help_text }}
+    </div>
+    {% endif %}
+</li>
+
+{% if errors %}
+<li class="error">
+    {{ errors }}
+</li>
+{% endif %}
+
+<script type="text/javascript">
+Calendar.setup({
+    inputField	 : "{{ element.name }}_year",
+    baseField    : "{{ element.name }}",
+    displayArea  : "{{ element.name }}_calendar",
+    button		 : "{{ element.name }}_img",
+    ifFormat	 : "%B %e, %Y",
+    onSelect	 : selectEuropeDate
+});
+</script>
+
