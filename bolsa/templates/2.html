@@ -5,126 +5,66 @@
 {% block title %}SEÇÃO DOIS: Seu Plano de Carreira, Estudo e Passar{% endblock %}
 
 {% block body %}
+
+{% load form_elements %}
+
 <div id="form_container">
     <div class="form_description">
         <p>Nesta seção você descreverá seu plano. Qual curso e estabelecimento vai escolher? Por que você precisa de uma bolsa?  Como pretende passar adiante o Incentivo recebido?  </p>
     </div>	
     
     
-    <!-- {% if form.errors %}
-        {% for error in form.errors %}
-            
-        {% endfor %}
-        {{ form.errors }}
-    {% endif %}
-    -->
-    
-    
-    
     <form id="applicantfuture" class="appnitro"  method="post" action="">				
         <ul>
+        
             <li class="section_break">
-                <h3>Cursos de Preparação Obrigatórios</h3>
-                <p></p>
+                <h2>Informações a respeito do Serviço na Igreja</h2>
             </li>
+            
+            {% text_input form 'church_calling' 'large' %}
+            
+            {% text_input form 'other_church_calling' 'large' %}
+            
+            {% text_input form 'mission' 'large' %}
+            
+            {% calendar_input form 'mission_start_date' mission_start_date %}
+            
+            {% calendar_input form 'mission_end_date' mission_end_date %}
+            
+            <li class="section_break">
+                <h2>Cursos de Preparação Obrigatórios</h2>
+            </li>
+            
             <li class="section_break">
                 <h3>Curso CASP (SRE)</h3>
-                <p></p>
             </li>
-            <li{% if form.errors.casp_date %} class="error"{% endif %}>
-                {{ form.casp_date.label_tag }}
-                <span>
-                    <input id="casp_date_day" name="casp_date_day" class="element text" size="2" maxlength="2" value="{% if casp_date %}{{ casp_date.day }}{% endif %}" type="text"> /
-                    <label for="casp_date_day">dia</label>
-                </span>
-                <span>
-                    <input id="casp_date_month" name="casp_date_month" class="element text" size="2" maxlength="2" value="{% if casp_date %}{{ casp_date.month }}{% endif %}" type="text"> /
-                    <label for="casp_date_month">mês</label>
-                </span>
-                <span>
-                    <input id="casp_date_year" name="casp_date_year" class="element text" size="4" maxlength="4" value="{% if casp_date %}{{ casp_date.year }}{% endif %}" type="text">
-                    <label for="casp_date_year">ano</label>
-                </span>
-                <span id="casp_date_calendar">
-                    <img id="casp_date_img" class="datepicker" src="/resources/images/calendar.gif" alt="Escolha uma data">	
-                    {% if form.casp_date.field.required %}<span class="required">*</span>{% endif %}
-                </span>
-                <p class="guidelines" id="guide_3"><small>{{ form.casp_date.help_text }}</small></p> 
-            </li>
-            <li{% if form.errors.casp_instructor_name %} class="error"{% endif %}>
-                {{ form.casp_instructor_name.label_tag }}
-                <div class="text medium">
-                    {{ form.casp_instructor_name }}
-                    {% if form.casp_instructor_name.field.required %}<span class="required">*</span>{% endif %}
-                </div>
-                <p class="guidelines" id="guide_7"><small>{{ form.casp_instructor_name.help_text }}</small></p> 
-            </li>
-            <li{% if form.errors.casp_instructor_phone %} class="error"{% endif %}>
-                {{ form.casp_instructor_phone.label_tag }}
-                <div class="text medium">
-                    {{ form.casp_instructor_phone }}
-                    {% if form.casp_instructor_phone.field.required %}<span class="required">*</span>{% endif %}
-                </div> 
-            </li>
+            
+            {% calendar_input form 'casp_date' casp_date %}
+            
+            {% text_input form 'casp_instructor_name' %}
+            
+            {% text_input form 'casp_instructor_phone' %}
+            
             <li class="section_break">
                 <h3>Planejar Para o Sucesso (SEI)</h3>
                 <p></p>
             </li>
-            <li{% if form.errors.sei_date %} class="error"{% endif %}>
-                {{ form.sei_date.label_tag }}
-                <span>
-                    <input id="sei_date_day" name="sei_date_day" class="element text" size="2" maxlength="2" value="{% if sei_date %}{{ sei_date.day }}{% endif %}" type="text"> /
-                    <label for="sei_date_day">dia</label>
-                </span>
-                <span>
-                    <input id="sei_date_month" name="sei_date_month" class="element text" size="2" maxlength="2" value="{% if sei_date %}{{ sei_date.month }}{% endif %}" type="text"> /
-                    <label for="sei_date_month">mês</label>
-                </span>
-                <span>
-                    <input id="sei_date_year" name="sei_date_year" class="element text" size="4" maxlength="4" value="{% if sei_date %}{{ sei_date.year }}{% endif %}" type="text">
-                    <label for="sei_date_year">ano</label>
-                </span>
-                <span id="sei_date_calendar">
-                    <img id="sei_date_img" class="datepicker" src="/resources/images/calendar.gif" alt="Escolha uma data">	
-                    {% if form.sei_date.field.required %}<span class="required">*</span>{% endif %}
-                </span>
-                <p class="guidelines" id="guide_6"><small>{{ form.sei_date.help_text }}</small></p> 
-            </li>
-            <li{% if form.errors.sei_instructor_name %} class="error"{% endif %}>
-                {{ form.sei_instructor_name.label_tag }}
-                <div>
-                    {{ form.sei_instructor_name }}
-                    {% if form.seit_instructor_name.field.required %}<span class="required">*</span>{% endif %}
-                </div>
-                <p class="guidelines" id="guide_8"><small>{{ form.sei_instructor_name.help_text }}</small></p> 
-            </li>
-            <li{% if form.errors.sei_instructor_phone %} class="error"{% endif %}>
-                {{ form.sei_instructor_phone.label_tag }}
-                <div>
-                    {{ form.sei_instructor_phone }}
-                    {% if form.sei_instructor_phone.field.required %}<span class="required">*</span>{% endif %}
-                </div> 
-            </li>
+            
+            {% calendar_input form 'sei_date' sei_date %}
+            
+            {% text_input form 'sei_instructor_name' %}
+            
+            {% text_input form 'sei_instructor_phone' %}
+            
             <li class="section_break">
                 <h3>Meu Emprego Atual</h3>
                 <p></p>
             </li>
-            <li{% if form.errors.employer %} class="error"{% endif %}>
-                {{ form.employer.label_tag }}
-                <div class="text large">
-                    {{ form.employer }}
-                    {% if form.salary.field.required %}<span class="required">*</span>{% endif %}
-                </div>
-                <p class="guidelines" id="guide_11"><small>{{ form.employer.help_text }}</small></p> 
-            </li>
-            <li{% if form.errors.salary %} class="error"{% endif %}>
-                {{ form.salary.label_tag }}
-                <div class="text small">
-                    {{ form.salary }}
-                    {% if form.salary.field.required %}<span class="required">*</span>{% endif %}
-                </div>
-                <p class="guidelines" id="guide_12"><small>{{ form.salary.help_text }}</small></p> 
-            </li>
+            
+            {% text_input form 'employer' 'large' %}
+            
+            {% text_input form 'salary' 'small' %}
+            
             <li{% if form.errors.spouse_employed %} class="error"{% endif %}>
                 {{ form.spouse_employed.label_tag }}
                 {% if form.spouse_employed.field.required %}<span class="required">*</span>{% endif %}
@@ -133,24 +73,13 @@
                     <label class="choice" for="spouse_employed_yes">Sim</label>
                     <input id="spouse_employed_no" name="spouse_employed" type="radio" value="0"{% ifequal form.spouse_employed.data "0" %}checked="checked"{% endifequal %} />
                     <label class="choice" for="spouse_employed_no">Não</label>
-                </span> 
+                </span>
             </li>
-            <li{% if form.errors.spouse_employer %} class="error"{% endif %}>
-                {{ form.spouse_employer.label_tag }}
-                <div class="text large">
-                    {{ form.spouse_employer }}
-                    {% if form.spouse_employer.field.required %}<span class="required">*</span>{% endif %}
-                </div>
-                <p class="guidelines" id="guide_13"><small>{{ form.spouse_employer.help_text }}</small></p> 
-            </li>
-            <li{% if form.errors.spouse_salary %} class="error"{% endif %}>
-                {{ form.spouse_salary.label_tag }}
-                <div class="text medium">
-                    {{ form.spouse_salary }}
-                    {% if form.spouse_salary.field.required %}<span class="required">*</span>{% endif %}
-                </div>
-                <p class="guidelines" id="guide_14"><small>{{ form.spouse_salary.help_text }}</small></p> 
-            </li>
+            
+            {% text_input form 'spouse_employer' 'large' %}
+            
+
+            {% text_input form 'spouse_salary' 'small' %}
         
             <li class="buttons">
                 <input id="saveForm" class="button_text" type="submit" name="submit" value="Próxima página" />
@@ -158,26 +87,4 @@
         </ul>
     </form>	
 </div>
-
-<script type="text/javascript">
-    Calendar.setup({
-    inputField	 : "casp_date_year",
-    baseField    : "casp_date",
-    displayArea  : "casp_date_calendar",
-    button		 : "casp_date_img",
-    ifFormat	 : "%B %e, %Y",
-    onSelect	 : selectEuropeDate
-    });
-</script>
-
-<script type="text/javascript">
-    Calendar.setup({
-    inputField	 : "sei_date_year",
-    baseField    : "sei_date",
-    displayArea  : "sei_date_calendar",
-    button		 : "sei_date_img",
-    ifFormat	 : "%B %e, %Y",
-    onSelect	 : selectEuropeDate
-    });
-</script>
 {% endblock %}

@@ -359,7 +359,6 @@ input.checkbox {
 	width:13px;
 }
 .checkbox input {
-	display:block;
 	height:13px;
 	line-height:1.4em;
 	margin:6px 0 0 3px;
@@ -474,7 +473,7 @@ textarea.large { height:20em; }
 #error_message_desc strong
 {
 	background-color:#FFDFDF;
-	color:red;
+	color:#DF0000;
 	padding:2px 3px;
 }
 
@@ -484,6 +483,9 @@ form .error
 	border-bottom:1px solid #EACBCC;
 	border-right:1px solid #EACBCC;
 	margin:3px 0;
+	clear:both;
+	color:#DF0000;
+	margin:0 0 5px;
 }
 
 form .error label
@@ -491,18 +493,9 @@ form .error label
 	color:#DF0000 !important;
 }
 
-form p.error
-{
-	clear:both;
-	color:red;
-	font-size:10px;
-	font-weight:700;
-	margin:0 0 5px;
-}
-
 form .required
 {
-	color:red;
+	color:#DF0000;
 	float:none;
 	font-weight:700;
 }
@@ -528,14 +521,15 @@ form .guidelines
 	visibility:hidden;
 	width:42%;
 	z-index:1000;
-}
-
-form .guidelines small
-{
-	font-size:105%;
+	font-size:105%
 }
 
 form li.highlighted .guidelines
+{
+	visibility:visible;
+}
+
+form li.error .guidelines
 {
 	visibility:visible;
 }

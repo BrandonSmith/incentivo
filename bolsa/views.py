@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
-from bolsa.models import ApplicationSession, ApplicantForm, ApplicantPastForm, ApplicantFutureForm, ApplicantSchoolForm
+from bolsa.models import ApplicationSession, ApplicantForm, ApplicantPastForm, ApplicantFutureForm, ApplicantSchoolForm, ApplicantCommitmentsForm
 from django.newforms.util import ErrorDict
 from django.utils.safestring import mark_safe
 from django import newforms as forms
@@ -51,7 +51,7 @@ def applicant(request, applicant_id):
     if request.method == 'POST':
         q = request.POST.copy()
         # reconstruct dates
-        q['birthdate'] = "%s-%s-%s" % (q['birthdate_year'], q['birthdate_month'], q['birthdate_day'])
+        birthdate = extract_date(q, 'birthdate')
         # create form and POSTed data to create an Applicant instance
         form = get_form(ApplicantForm, q)
         if form.is_valid():
@@ -65,7 +65,6 @@ def applicant(request, applicant_id):
             session.save()
             # forward on to next step
             return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/2/" % session.session_id)
-        birthdate = {'day': q['birthdate_day'], 'month': q['birthdate_month'], 'year': q['birthdate_year']}
     else:
         # new application
         form = get_form(ApplicantForm)
@@ -74,7 +73,9 @@ def applicant(request, applicant_id):
     return render_to_response('bolsa/templates/1.html', {'applicant_id': applicant_id, 'form': form, 'birthdate': birthdate})
 
 
-
+def extract_date(form, element):
+    form[element] = "%s-%s-%s" % (form[element+'_year'], form[element+'_month'], form[element+'_day'])
+    return {'day': form[element+'_day'], 'month': form[element+'_month'], 'year': form[element+'_year']}
 
 
 
@@ -83,8 +84,10 @@ def past(request, applicant_id):
     if request.method == 'POST':
         q = request.POST.copy()
         # reconstruct dates
-        q['casp_date'] = "%s-%s-%s" % (q['casp_date_year'], q['casp_date_month'], q['casp_date_day'])
-        q['sei_date'] = "%s-%s-%s" % (q['sei_date_year'], q['sei_date_month'], q['sei_date_day'])
+        mission_start_date = extract_date(q, 'mission_start_date')
+        mission_end_date = extract_date(q, 'mission_end_date')
+        casp_date = extract_date(q, 'casp_date')
+        sei_date = extract_date(q, 'sei_date')
         # create form and POSTed data to create an Applicant instance
         form = get_form(ApplicantPastForm, q)
         if form.is_valid():
@@ -98,15 +101,15 @@ def past(request, applicant_id):
             session.save()
             # foward on to next step
             return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/3/" % session.session_id)
-        casp_date = {'day': q['casp_date_day'], 'month': q['casp_date_month'], 'year': q['casp_date_year']}
-        sei_date = {'day': q['sei_date_day'], 'month': q['sei_date_month'], 'year': q['sei_date_year']}
     else:
         form = get_form(ApplicantPastForm)
+        mission_start_date = None
+        mission_end_date = None
         casp_date = None
         sei_date = None
     
     # form either came from failed submit or new form
-    return render_to_response('bolsa/templates/2.html', {'applicant_id': applicant_id, 'form': form, 'casp_date': casp_date, 'sei_date': sei_date})
+    return render_to_response('bolsa/templates/2.html', {'applicant_id': applicant_id, 'form': form, 'mission_start_date': mission_start_date, 'mission_end_date': mission_end_date, 'casp_date': casp_date, 'sei_date': sei_date})
 
 
 
@@ -141,7 +144,7 @@ def school(request, applicant_id):
     session = ApplicationSession.objects.get(pk=applicant_id)
     if request.method == 'POST':
         q = request.POST.copy()
-        q['program_start_date'] = "%s-%s-%s" % (q['program_start_date_year'], q['program_start_date_month'], q['program_start_date_day'])
+        program_start_date = extract_date(q, 'program_start_date')
         form = get_form(ApplicantSchoolForm, q)
         if form.is_valid():
             school = form.save(commit=False)
@@ -150,23 +153,41 @@ def school(request, applicant_id):
             session.completed_step = 4
             session.save()
             return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/5/" % session.session_id)
-        program_start_date = {'day': q['program_start_date_day'], 'month': q['program_start_date_month'], 'year': q['program_start_date_year']}
     else:
         form = get_form(ApplicantSchoolForm)
         program_start_date = None
     return render_to_response('bolsa/templates/4.html', { 'applicant_id': applicant_id, 'form': form, 'program_start_date': program_start_date })
     
 def commitments(request, applicant_id):
+    session = ApplicationSession.objects.get(pk=applicant_id)
     if request.method == 'POST':
-        session = ApplicationSession.objects.get(pk=applicant_id)
-        session.completed_step = 5
-        session.save()
-        return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/done/" % session.session_id)
+        q = request.POST.copy()
+        date = extract_date(q, 'date')
+        form = get_form(ApplicantCommitmentsForm, q)
+        if form.is_valid():
+            commitments = form.save(commit=False)
+            commitments.session = session
+            commitments.save()
+            session.completed_step = 5
+            session.save()
+            return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/confirm/" % session.session_id)
     else:
-        return render_to_response('bolsa/templates/5.html', {'applicant_id': applicant_id})
+        form = get_form(ApplicantCommitmentsForm)
+        date = None
+    return render_to_response('bolsa/templates/5.html', {'applicant_id': applicant_id, 'form': form, 'date': date})
+
+def confirm(request, applicant_id):
+    session = ApplicationSession.objects.get(pk=applicant_id)
+    if request.method == 'POST':
+        q = request.POST.copy()
+        confirm = q['confirm']
+        if confirm == 'Y':
+            return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/confirm/" % session.session_id)
+    return render_to_response('bolsa/templates/6.html')
 
 def done(request, applicant_id):
     session = ApplicationSession.objects.get(pk=applicant_id)
     session.completed_step = 6
+    session.save()
     return HttpResponse("done")
 

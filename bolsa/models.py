@@ -37,14 +37,16 @@ class Applicant(models.Model):
     
     address = models.CharField("Endereço", blank=True, max_length=150)
     address2 = models.CharField("Endereço 2", blank=True, max_length=150)
-    city = models.CharField("Cidade", max_length=100)
-    state = models.CharField("Província", max_length=2)
+    city = models.CharField("Cidade", max_length=100, help_text="Favor informar o nome de sua cidade")
+    state = models.CharField("Província", max_length=2, help_text="Favor informar o nome de seu estado")
     zip_code = models.CharField("Código postal", blank=True, max_length=10)
     country = models.CharField("País", blank=True, max_length=25, choices=bolsa.COUNTRY_CHOICES)
     
     email = models.EmailField("E-mail (por favor utilizar um endereço de E-mail que você acessa com freqüência. Todo contato da Incentivo será via comunicação eletrônica)", max_length=50, help_text="Favor preencher o campo 'E-mail'")
-    business_telephone = models.CharField("Telefone commercial", max_length=15)
-    home_telephone = models.CharField("Telefone residencial", max_length=15)
+    business_telephone = models.CharField("Telefone commercial", blank=True, max_length=15)
+    home_telephone = models.CharField("Telefone residencial", max_length=15, help_text="Favor informar o número de seu telefone residencia")
+    
+    
     
     emergency_name = models.CharField("Nome de parente mais próximo que não mora com você ou outra pessoa que saberá do seu paradeiro", max_length=100, help_text="Favor informar o nome de alguém que saberá do seu paradeiro")
     emergency_email = models.EmailField("Email", blank=True, max_length=50)
@@ -57,28 +59,53 @@ class Applicant(models.Model):
         pass
 
 class ApplicantForm(ModelForm):
-    email2 = forms.EmailField(label="Confirmar E-mail")
+    email2 = forms.EmailField(label="Confirmar E-mail", help_text="Favor confirmar seu E-mail")
     
     def clean_email2(self):
         email2_value = self.data['email2']
         email_value = self.data['email']
         if not email2_value == email_value:
-            raise forms.ValidationError('Confirming email must match')
+            raise forms.ValidationError('Os E-mails providenciados não são iguais, favor verificar a informação')
+    
+    def clean_birthdate(self):
+        birthdate = self.cleaned_data['birthdate']
+        age = calculate_age(birthdate)
+        if age < 30:
+            raise forms.ValidationError('Pela data de nascimento indicada, você não tem mais de 30 anos de idade. Infelizmente, no momento não estamos aprovando bolsas para pessoas com menos de 30 anos de idade. Se a data de nascimento foi preenchida incorretamente, favor corrigir a informação e prosseguir')
+        return birthdate
     
     class Meta:
         model = Applicant
 
+def calculate_age(born):
+    """Calculate the age of a user."""
+    from datetime import date
+    today = date.today()
+    try:
+        birthday = date(today.year, born.month, born.day)
+    except ValueError:
+        # Raised when person was born on 29 February and the current
+        # year is not a leap year.
+        birthday = date(today.year, born.month, born.day - 1)
+    if birthday > today:
+        return today.year - born.year - 1
+    else:
+        return today.year - born.year
 
 
 
-
-
-
+SPOUSE_EMPLOYED_CHOICES = (('1', 'Sim'), ('0', 'Não'))
 
 class ApplicantPast(models.Model):
     """An ApplicantPast is information about the individuals past education"""
 
     session = models.OneToOneField(ApplicationSession, editable=False)
+    
+    church_calling = models.CharField("Seu chamado atual na Igreja", max_length=100, help_text="Favor informar o seu chamado atual")
+    other_church_calling = models.CharField("Outros cargos que ocupou na Igreja", max_length=200, blank=True)
+    mission = models.CharField("Missão (se serviu) e datas (mês/ano)", max_length=100, blank=True)
+    mission_start_date = models.DateField("Missão a data de início", blank=True)
+    mission_end_date = models.DateField("Missão data final", blank=True)
     
     casp_date = models.DateField("Datas em que foram realizados os cursos", help_text="Favor informar a data que você concluiu o curso CASP")
     casp_instructor_name = models.CharField("Nome do Instrutor", max_length=100, help_text="Favor informar o nome do instrutor do curso CASP")
@@ -89,22 +116,35 @@ class ApplicantPast(models.Model):
     sei_instructor_phone = models.CharField("Telefone", blank=True, max_length=15)
     
     employer = models.CharField("Meu trabalho atual", max_length=100, blank=True, help_text="Favor informar o seu trabalho atual")
-    salary = models.IntegerField("Remuneração mensal (não ponha centavos)", blank=True, help_text="Favor informar a sua remuneração mensal")
+    salary = models.IntegerField("Remuneração mensal (não ponha centavos)", blank=True, help_text="Favor informar a sua remuneração mensal", null=True)
     
-    spouse_employed = models.BooleanField("O seu cônjuge trabalha ou tem alguma renda mensal? (Caso sim, por favor indique em que trabalha no campo abaixo)")
+    spouse_employed = models.BooleanField("O seu cônjuge trabalha ou tem alguma renda mensal? (Caso sim, por favor indique em que trabalha no campo abaixo)", choices=SPOUSE_EMPLOYED_CHOICES)
     spouse_employer = models.CharField(max_length=100, blank=True, help_text="Favor informar o trabalho atual do seu cônjuge")
-    spouse_salary = models.IntegerField("Remuneração mensal do seu cônjuge (não ponha centavos)", blank=True, help_text="Favor informar o valor da remuneração mensal do seu cônjuge")
+    spouse_salary = models.IntegerField("Remuneração mensal do seu cônjuge (não ponha centavos)", blank=True, help_text="Favor informar o valor da remuneração mensal do seu cônjuge", null=True)
     
     class Admin:
         pass
 
 class ApplicantPastForm(ModelForm):
+
+    def clean_spouse_employer(self):
+        return validates_presence_of_condition(self, 'spouse_employed', 'spouse_employer', 'Favor informar o trabalho atual do seu cônjuge')
+
+    def clean_spouse_salary(self):
+        return validates_presence_of_condition(self, 'spouse_employed', 'spouse_salary', 'Favor informar o valor da remuneração mensal do seu cônjuge')
+        
     class Meta:
         model = ApplicantPast
 
 
 
-
+def validates_presence_of_condition(instance, condition, target, message):
+    condition2 = instance.cleaned_data[condition]
+    target2 = instance.data[target]
+    if condition2 and not target2:
+        # do i need to check for string length on target?
+        raise forms.ValidationError(message)
+    return instance.cleaned_data[target]
 
 
 class ApplicantFuture(models.Model):
@@ -146,6 +186,11 @@ class ApplicantSchool(models.Model):
         pass
 
 class ApplicantSchoolForm(ModelForm):
+    def clean_program_duration(self):
+        d = self.cleaned_data['program_duration']
+        if (d > 24):
+            raise forms.ValidationError('Pela informação indicada no campo "Duração do programa" você indicou que o curso passa o limite de 24 meses. Infelizmente nós não oferecemos bolsas para curos que tenham uma duração maior do que 24 meses.')
+        return d
     class Meta:
         model = ApplicantSchool
 
@@ -156,26 +201,45 @@ class ApplicantCommitments(models.Model):
 
     session = models.OneToOneField(ApplicationSession, editable=False)
 
-    commitment_moving_foward = models.BooleanField("Me comprometo a cumprir a filosofia Passar Adiante", help_text="Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser")
-    commitment_own_money = models.BooleanField()
-    commitment_good_student = models.BooleanField()
-    commitment_faith = models.BooleanField()
+    commitment_moving_foward = models.BooleanField("Me comprometo a cumprir a filosofia Passar Adiante")
+    commitment_own_money = models.BooleanField("Usarei meu próprio dinheiro para pagar tanto quanto me for possível dos custos do meu curso")
+    commitment_good_student = models.BooleanField("Esforçar-me-ei ao máximo para tirar boa notas, frequentar todas as aulas, e aprender todo o material")
+    commitment_faith = models.BooleanField("Permanecerei ativo na Igreja e digno de possuir uma recomendação ao templo")
     
-    signature = models.CharField(max_length=150)
-    date = models.DateField()
+    signature = models.CharField("Assinatura/Nome (em letra de forma)", max_length=150, help_text="Favor preencher o campo 'Assinatura/Nome', preenchendo o mesmo com o seu nome completo")
+
+    date = models.DateField("Data (dia/mês/ano)", help_text="Favor informar a data")
     
-    ward = models.CharField(max_length=100)
-    bishop_name = models.CharField(max_length=100)
-    bishop_phone = models.PhoneNumberField()
-    
-    additional_comments = models.TextField()
-    
-    pledge = models.BooleanField()
+    ward = models.CharField("Ala/Ramo do Candidato", max_length=100, help_text="Favor informar o nome da sua ala ou do seu ramo")
+    bishop_name = models.CharField("Nome do Bispo ou Presidente de Ramo", max_length=100, help_text="Favor informar o nome do seu bispo atual")
+    bishop_phone = models.CharField("Telefone", max_length=15, help_text="Favor informar um número")
+                                                                                 
+    additional_comments = models.TextField("Comentarios Adicionais", blank=True)
     
     class Admin:
         pass
 
+class ApplicantCommitmentsForm(ModelForm):
 
+    def clean_commitment_moving_foward(self):
+        return raise_if_not_checked(self, 'commitment_moving_foward', 'Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser')
+    
+    def clean_commitment_own_money(self):
+        return raise_if_not_checked(self, 'commitment_own_money', 'Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser')
+    
+    def clean_commitment_good_student(self):
+        return raise_if_not_checked(self, 'commitment_good_student', 'Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser')
+    
+    def clean_commitment_faith(self):
+        return raise_if_not_checked(self, 'commitment_faith', 'Por favor lea e marque cada compromisso para poder prosseguir. Caso não esteja disposto a aceitar o compromisso, feche a janela do seu browser')
+    
+    class Meta:
+        model = ApplicantCommitments
 
+def raise_if_not_checked(instance, element, message):
+    v = instance.cleaned_data[element]
+    if not v:
+        raise forms.ValidationError(message)
+    return v
 
 
