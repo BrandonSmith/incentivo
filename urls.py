@@ -3,7 +3,7 @@ from django.contrib.auth.models import *
 from django.contrib import databrowse
 from django import newforms as forms
 from incentivo.bolsa.models import Applicant, ApplicantForm
-import settings
+from django.conf import settings
 
 urlpatterns = patterns('',
 	(r'^admin/', include('django.contrib.admin.urls')),

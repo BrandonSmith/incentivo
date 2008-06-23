@@ -11,10 +11,7 @@ MANAGERS = (
 	('contato', 'contato@incentivo.org.br'),
 )
 
-# DATABASE_ENGINE = 'sqlite3'
 DATABASE_ENGINE = 'mysql'
-#DATABASE_NAME = '/home/incentivo/databases/incentivo/db'
-#DATABASE_NAME = '/home/brandon/user/django_projects/incentivo/db'
 DATABASE_NAME = 'incentivo_bolsa'
 
 DATABASE_USER = 'incentivo'
@@ -33,9 +30,7 @@ SITE_ID = 1
 USE_I18N = True
 
 MEDIA_ROOT = '/home/incentivo/media.incentivo.org.br'
-#MEDIA_ROOT = ''
 OTHER_MEDIA_ROOT = '/home/incentivo/django_projects/incentivo/resources/'
-#OTHER_MEDIA_ROOT = '/home/brandon/user/django_projects/incentivo/resources/'
 
 # MEDIA_URL = 'http://mediabolsa.dreamhosters.com/'
 MEDIA_URL = ''
@@ -66,11 +61,6 @@ TEMPLATE_DIRS = (
     "/home/incentivo/django_projects/incentivo",
     "/home/incentivo/django_src/django/contrib/databrowse/templates",
 )
-
-#TEMPLATE_DIRS = (
-#    "/home/brandon/user/django_projects/incentivo",
-#    "/home/brandon/user/django_src/django/contrib/databrowse/templates",
-#)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
