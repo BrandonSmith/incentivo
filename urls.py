@@ -2,7 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib.auth.models import *
 from django.contrib import databrowse
 from django import newforms as forms
-from incentivo.bolsa.models import Applicant, ApplicantForm
+from incentivo.bolsa.models import Applicant, ApplicantForm, ApplicantPast
 from django.conf import settings
 
 urlpatterns = patterns('',
