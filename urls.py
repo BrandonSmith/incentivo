@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 	(r'^contact/', include('contact_form.urls')),
 )
 
-databrowse.site.register(User)
+databrowse.site.register(Applicant)
+databrowse.site.register(ApplicantPast)
 
 #(r'^bolsa/success/$', 'incentivo.bolsa.views.success'),
