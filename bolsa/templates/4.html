@@ -12,7 +12,7 @@
     <div class="form_description">
         <p>Estabelecimento de Ensino de sua escolha (precisará falar com alguém do estabelecimento para obter informação sobre o custo do curso) </p>
     </div>	
-    <form id="applicantschool" class="appnitro"  method="post" action="">
+    <form id="dataform" class="appnitro"  method="post" action="">
         <ul>
         
             {% text_input form 'school_name' %}
@@ -52,4 +52,5 @@
         </ul>
     </form>	
 </div>
+{% disable_on_submit %}
 {% endblock %}

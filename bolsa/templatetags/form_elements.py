@@ -20,3 +20,7 @@ def calendar_input(form, element, value):
 def check_input(form, element):
     return {'element': form[element], 'errors': extract_errors(form, element)}
 
+@register.inclusion_tag('bolsa/templates/disable_on_submit.html')
+def disable_on_submit():
+    return {}
+
