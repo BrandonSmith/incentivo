@@ -66,7 +66,7 @@ a:hover { color:#ffe761; }
 
 
 /* BILLBOARDS */
-#billboard { background:#487858 repeat-x; border-bottom:6px solid #006331; }
+#billboard { background:#487858 repeat-x; /*border-bottom:6px solid #006331;*/ }
 #billboard h2 { margin:0; }
 #generic #billboard { display:none; }
 #home #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/bolsa.jpg) no-repeat; }
