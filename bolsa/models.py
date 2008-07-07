@@ -55,7 +55,7 @@ class Applicant(models.Model):
     city = models.CharField("Cidade", max_length=100, help_text="Favor informar o nome de sua cidade")
     state = models.CharField("Província", max_length=2, help_text="Favor informar o nome de seu estado")
     zip_code = models.CharField("Código postal", blank=True, max_length=10)
-    country = models.CharField("País", blank=True, max_length=25, choices=bolsa.COUNTRY_CHOICES)
+    country = models.CharField("País", blank=True, max_length=25, choices=bolsa.COUNTRY_CHOICES, default="Brazil")
     
     email = models.EmailField("E-mail (por favor utilizar um endereço de E-mail que você acessa com freqüência. Todo contato da Incentivo será via comunicação eletrônica)", unique=True, max_length=50, help_text="Favor preencher o campo 'E-mail'")
     business_telephone = models.CharField("Telefone commercial", blank=True, max_length=15)

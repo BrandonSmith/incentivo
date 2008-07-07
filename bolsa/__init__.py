@@ -4,7 +4,6 @@ GENDER_CHOICES = (('M', 'M'),('F', 'F'),)
 
 COUNTRY_CHOICES = (
     ('Brazil', 'Brasil'),
-    ('', '---------'),
     ('Afghanistan', 'Afeganistão'),
     ('Albania', 'Albânia'),
     ('Algeria', 'Argélia'),
