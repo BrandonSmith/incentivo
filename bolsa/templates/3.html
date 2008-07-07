@@ -12,10 +12,18 @@
     <div class="form_description">
         <p>Nesta se&ccedil;&atilde;o voc&ecirc; descrever&aacute; seu plano. Qual curso e estabelecimento vai escolher? Por
 que voc&ecirc; precisa de uma bolsa? Como pretende passar adiante o Incentivo recebido?</p>
-    </div>	
+    </div>
     
-    <form id="dataform" class="appnitro"  method="post" action="">				
+    <form id="dataform" class="appnitro"  method="post" action="">
+	
         <ul>
+            {% if display_overwrite %}
+            <li class="error">
+                {{ form.overwrite.label_tag }}
+                {{ form.overwrite }}
+            </li>
+            {% endif %}	
+            
             <li class="section_break">
                 <h2>Meu Futuro Emprego</h2>
             </li>

@@ -16,7 +16,20 @@
 
 
     <form id="dataform" class="appnitro"  method="post" action="">		
-        <ul>			
+        <ul>
+        
+            {% if display_overwrite %}
+            <li class="error">
+                {{ form.overwrite.label_tag }}
+                <span class="radio choices">
+                    <input id="overwrite_yes" name="overwrite" type="radio" value="Y" checked />
+                    <label for="overwrite_yes">Sim</label>
+                    <input id="overwrite_no" name="overwrite" type="radio" value="N" />
+                    <label for="overwrite_no">Não</label>
+                </span> 
+            </li>
+            {% endif %}
+        
             <li class="section_break">
                 <h2>Informações Pessoais</h2>
             </li>

@@ -8,8 +8,9 @@ from incentivo.utils import UUIDField
 import bolsa
 from django.core.validators import AlwaysMatchesOtherField
 
-class ApplicationSession(models.Model):
 
+
+class ApplicationSession(models.Model):
     session_id = UUIDField(primary_key=True)
     completed_step = models.IntegerField(default=0)
     
@@ -18,6 +19,20 @@ class ApplicationSession(models.Model):
     
     class Admin:
         pass
+
+
+class RequestLog(models.Model):
+
+    session = models.ForeignKey(ApplicationSession, editable=False)
+    log = models.TextField()
+    step = models.IntegerField()
+    create_at = models.DateTimeField(auto_now_add=True)
+    
+    class Admin:
+        pass
+
+
+
 
 
 class Applicant(models.Model):
@@ -31,9 +46,9 @@ class Applicant(models.Model):
     
     gender = models.CharField("Sexo", max_length=1, blank=True, choices=bolsa.GENDER_CHOICES)
     birthdate = models.DateField("Data de nascimento", help_text="Favor preencher o campo 'Data de nascimento'")
-    married = models.BooleanField("Estado civil", blank=True)
-    head_of_household = models.BooleanField("Chefe de Família?", blank=True)
-    number_of_children = models.IntegerField("Número de filhos", blank=True)
+    married = models.BooleanField("Estado civil", blank=True, null=True)
+    head_of_household = models.BooleanField("Chefe de Família?", blank=True, null=True)
+    number_of_children = models.IntegerField("Número de filhos", blank=True, null=True)
     
     address = models.CharField("Endereço", blank=True, max_length=150)
     address2 = models.CharField("Endereço 2", blank=True, max_length=150)
@@ -42,7 +57,7 @@ class Applicant(models.Model):
     zip_code = models.CharField("Código postal", blank=True, max_length=10)
     country = models.CharField("País", blank=True, max_length=25, choices=bolsa.COUNTRY_CHOICES)
     
-    email = models.EmailField("E-mail (por favor utilizar um endereço de E-mail que você acessa com freqüência. Todo contato da Incentivo será via comunicação eletrônica)", max_length=50, help_text="Favor preencher o campo 'E-mail'")
+    email = models.EmailField("E-mail (por favor utilizar um endereço de E-mail que você acessa com freqüência. Todo contato da Incentivo será via comunicação eletrônica)", unique=True, max_length=50, help_text="Favor preencher o campo 'E-mail'")
     business_telephone = models.CharField("Telefone commercial", blank=True, max_length=15)
     home_telephone = models.CharField("Telefone residencial", max_length=15, help_text="Favor informar o número de seu telefone residencia")
     
@@ -59,7 +74,9 @@ class Applicant(models.Model):
         pass
 
 class ApplicantForm(ModelForm):
+    
     email2 = forms.EmailField(label="Confirmar E-mail", help_text="Favor confirmar seu E-mail")
+    overwrite = forms.BooleanField(label="Overwrite form data previously submitted?", required=False)
     
     def clean_email2(self):
         email2_value = self.data['email2']
@@ -104,8 +121,8 @@ class ApplicantPast(models.Model):
     church_calling = models.CharField("Seu chamado atual na Igreja", max_length=100, help_text="Favor informar o seu chamado atual")
     other_church_calling = models.CharField("Outros cargos que ocupou na Igreja", max_length=200, blank=True)
     mission = models.CharField("Missão (se serviu) e datas (mês/ano)", max_length=100, blank=True)
-    mission_start_date = models.DateField("Missão a data de início", blank=True)
-    mission_end_date = models.DateField("Missão data final", blank=True)
+    mission_start_date = models.DateField("Missão a data de início", blank=True, null=True)
+    mission_end_date = models.DateField("Missão data final", blank=True, null=True)
     
     casp_date = models.DateField("Datas em que foram realizados os cursos", help_text="Favor informar a data que você concluiu o curso CASP")
     casp_instructor_name = models.CharField("Nome do Instrutor", max_length=100, help_text="Favor informar o nome do instrutor do curso CASP")
@@ -126,6 +143,8 @@ class ApplicantPast(models.Model):
         pass
 
 class ApplicantPastForm(ModelForm):
+
+    overwrite = forms.BooleanField(label="Overwrite form data previously submitted?", required=False)
 
     def clean_spouse_employer(self):
         return validates_presence_of_condition(self, 'spouse_employed', 'spouse_employer', 'Favor informar o trabalho atual do seu cônjuge')
@@ -163,6 +182,9 @@ class ApplicantFuture(models.Model):
         pass
 
 class ApplicantFutureForm(ModelForm):
+
+    overwrite = forms.BooleanField(label="Overwrite form data previously submitted?", required=False)
+    
     class Meta:
         model = ApplicantFuture
 

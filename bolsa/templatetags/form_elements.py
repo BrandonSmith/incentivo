@@ -24,3 +24,6 @@ def check_input(form, element):
 def disable_on_submit():
     return {}
 
+@register.inclusion_tag('bolsa/templates/overwrite.html')
+def overwrite():
+    return {}

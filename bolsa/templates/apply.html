@@ -39,8 +39,32 @@ Voc&#234; est&#225; dando in&#237;cio a um processo importante. Est&#225; em bus
   <li>Cursos para estudos no exterior</li>
 </ul>
 
-<form action="." method="post">
+<form id="new_users" action="." method="post">
   <input type="submit" id="start_application" value="Prosiga com formul&#225;rio" />
 </form>
 
+<h3>Voltando usuários</h3>
+    <div>
+        <p>Forneça a sua candidatura e-mail e senha para prosseguir a sua forma</p>
+        {% if applicant_id %}
+            <p>The application password and email do not match. Either start a new application or <a href="mailto:bolsa@incentivo.org.br">contact us</a>.</p>
+        {% endif %}
+    </div>
+<form class="appnitro" id="returning_users" action="." method="post">
+    <ul>
+        <li>
+            <div class="text medium">
+            <label for="applicant_id">Aplicação senha</label>
+            <input type="text" id="applicant_id" name="applicant_id" />
+            </div>
+        </li>
+        <li>
+            <div class="text medium">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" />
+            </div>
+        </li>
+        <li><input type="submit" id="start_application" value="Prosiga com formul&#225;rio" /></li>
+    </ul>
+</form>
 {% endblock %}

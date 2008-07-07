@@ -16,6 +16,13 @@
     
     <form id="dataform" class="appnitro"  method="post" action="">				
         <ul>
+            
+            {% if display_overwrite %}
+            <li class="error">
+                {{ form.overwrite.label_tag }}
+                {{ form.overwrite }}
+            </li>
+            {% endif %}
         
             <li class="section_break">
                 <h2>Informações a respeito do Serviço na Igreja</h2>
