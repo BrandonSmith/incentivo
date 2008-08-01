@@ -1,9 +1,9 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from bolsa.models import ApplicationSession, Applicant, ApplicantForm, ApplicantPastForm, ApplicantFutureForm, ApplicantSchoolForm, ApplicantCommitmentsForm, RequestLog, ApplicantPast, ApplicantCommitments, ApplicantFuture, ApplicantSchool
-from django.newforms.util import ErrorDict
+from django.forms.util import ErrorDict
 from django.utils.safestring import mark_safe
-from django import newforms as forms
+from django import forms
 from django.conf import settings
 
 

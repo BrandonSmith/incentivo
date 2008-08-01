@@ -2,11 +2,12 @@
 
 from django.db import models
 from django.utils.translation import ugettext as _
-from django.newforms import ModelForm
-from django import newforms as forms
+from django.forms import ModelForm
+from django import forms
 from incentivo.utils import UUIDField
 import bolsa
 from django.core.validators import AlwaysMatchesOtherField
+from django.contrib import admin
 
 
 
@@ -16,9 +17,6 @@ class ApplicationSession(models.Model):
     
     def __unicode__(self):
         return "%s: %s" % (self.session_id, self.completed_step)
-    
-    class Admin:
-        pass
 
 
 class RequestLog(models.Model):
@@ -27,9 +25,6 @@ class RequestLog(models.Model):
     log = models.TextField()
     step = models.IntegerField()
     create_at = models.DateTimeField(auto_now_add=True)
-    
-    class Admin:
-        pass
 
 
 
@@ -70,8 +65,7 @@ class Applicant(models.Model):
     def __unicode__(self):
         return "%s, %s" % (self.last_name, self.first_name)
     
-    class Admin:
-        pass
+
 
 class ApplicantForm(ModelForm):
     
@@ -139,8 +133,7 @@ class ApplicantPast(models.Model):
     spouse_employer = models.CharField(max_length=100, blank=True, help_text="Favor informar o trabalho atual do seu cônjuge")
     spouse_salary = models.IntegerField("Remuneração mensal do seu cônjuge (não ponha centavos)", blank=True, help_text="Favor informar o valor da remuneração mensal do seu cônjuge", null=True)
     
-    class Admin:
-        pass
+
 
 class ApplicantPastForm(ModelForm):
 
@@ -178,8 +171,7 @@ class ApplicantFuture(models.Model):
     essay_reason = models.TextField("No campo abaixo por favor explique por que você deve receber o auxílio da Incentivo para ajudar com o seu curso. (Máximo de 2.500 caracteres)", help_text="Favor responder a Redação 2 – Por Que Eu Devo Receber uma Bolsa")
     essay_next = models.TextField("No campo abaixo por favor explique o que você entende ser “passar adiante” e como você passará adiante caso seja aprovado para receber uma bolsa. (Máximo de 2.500 caracteres)", help_text="Favor responder a Redação 3 – Passar Adiante")
     
-    class Admin:
-        pass
+
 
 class ApplicantFutureForm(ModelForm):
 
@@ -204,8 +196,7 @@ class ApplicantSchool(models.Model):
     pay_half = models.BooleanField("Pode pagar 50% do seu curso?")
     program_url = models.URLField("Site de internet do estabelecimento/curso", blank=True)
     
-    class Admin:
-        pass
+
 
 class ApplicantSchoolForm(ModelForm):
     def clean_program_duration(self):
@@ -238,8 +229,7 @@ class ApplicantCommitments(models.Model):
                                                                                  
     additional_comments = models.TextField("Comentarios Adicionais", blank=True)
     
-    class Admin:
-        pass
+
 
 class ApplicantCommitmentsForm(ModelForm):
 
@@ -263,5 +253,8 @@ def raise_if_not_checked(instance, element, message):
     if not v:
         raise forms.ValidationError(message)
     return v
+
+
+
 
 
