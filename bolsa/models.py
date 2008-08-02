@@ -130,7 +130,7 @@ class ApplicantPast(models.Model):
     salary = models.IntegerField("Remuneração mensal (não ponha centavos)", blank=True, help_text="Favor informar a sua remuneração mensal", null=True)
     
     spouse_employed = models.BooleanField("O seu cônjuge trabalha ou tem alguma renda mensal? (Caso sim, por favor indique em que trabalha no campo abaixo)", choices=SPOUSE_EMPLOYED_CHOICES)
-    spouse_employer = models.CharField(max_length=100, blank=True, help_text="Favor informar o trabalho atual do seu cônjuge")
+    spouse_employer = models.CharField("", max_length=100, blank=True, help_text="Favor informar o trabalho atual do seu cônjuge")
     spouse_salary = models.IntegerField("Remuneração mensal do seu cônjuge (não ponha centavos)", blank=True, help_text="Favor informar o valor da remuneração mensal do seu cônjuge", null=True)
     
 
