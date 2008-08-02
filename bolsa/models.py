@@ -48,7 +48,7 @@ class Applicant(models.Model):
     address = models.CharField("Endereço", blank=True, max_length=150)
     address2 = models.CharField("Endereço 2", blank=True, max_length=150)
     city = models.CharField("Cidade", max_length=100, help_text="Favor informar o nome de sua cidade")
-    state = models.CharField("Província", max_length=2, help_text="Favor informar o nome de seu estado")
+    state = models.CharField("Estado/Província", max_length=2, help_text="Favor informar o nome de seu estado")
     zip_code = models.CharField("Código postal", blank=True, max_length=10)
     country = models.CharField("País", blank=True, max_length=25, choices=bolsa.COUNTRY_CHOICES, default="Brazil")
     
