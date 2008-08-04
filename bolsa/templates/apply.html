@@ -43,9 +43,9 @@ Voc&#234; est&#225; dando in&#237;cio a um processo importante. Est&#225; em bus
   <input type="submit" id="start_application" value="Prosiga com formul&#225;rio" />
 </form>
 
-<h3>Voltando usuários</h3>
+<h3>Usuário Cadastrado</h3>
     <div>
-        <p>Forneça a sua candidatura e-mail e senha para prosseguir a sua forma</p>
+        <p>Favor fornecer o seu E-mail e senha para prosseguir a seu formulário</p>
         {% if applicant_id %}
             <p>The application password and email do not match. Either start a new application or <a href="mailto:bolsa@incentivo.org.br">contact us</a>.</p>
         {% endif %}
@@ -54,14 +54,14 @@ Voc&#234; est&#225; dando in&#237;cio a um processo importante. Est&#225; em bus
     <ul>
         <li>
             <div class="text medium">
-            <label for="applicant_id">Aplicação senha</label>
-            <input type="text" id="applicant_id" name="applicant_id" />
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" />
             </div>
         </li>
         <li>
             <div class="text medium">
-            <label for="email">E-mail</label>
-            <input type="text" id="email" name="email" />
+            <label for="applicant_id">Senha</label>
+            <input type="text" id="applicant_id" name="applicant_id" />
             </div>
         </li>
         <li><input type="submit" id="start_application" value="Prosiga com formul&#225;rio" /></li>
