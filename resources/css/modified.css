@@ -32,8 +32,8 @@ a:hover { color:#ffe761; }
 
 
 /* HEADER */
-#header { position:relative; height:6.5em; background:#FFF; }
-#header h1#logo { margin:0; width:111px; height:41px; position:absolute; bottom:15px; }
+#header { position:relative; height:7em; background:#FFF; }
+#header h1#logo { margin:0; position:absolute; top:-45px; }
 
 
 /* SUB-NAV */

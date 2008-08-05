@@ -1,26 +1,9 @@
 @import "modified.css";
 
-/*
-.button-download {
-background:transparent url(/resources/images/button-left.gif) no-repeat scroll 0%;
-display:block;
-}
-*/
-
 .button-download {
     background:#487858 none repeat-x scroll 0% 0%;
     display:block;
 }
-
-/*
-.button-download a {
-background:transparent url(/resources/images/button-right.gif) no-repeat scroll right top;
-display:block;
-height:18px;
-padding:6px 12px;
-white-space:nowrap;
-}
-*/
 
 .button-download a {
     color:#FFE761;
