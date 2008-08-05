@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 	(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     (r'^resources/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.OTHER_MEDIA_ROOT}),
 	(r'^bolsa-de-estudo/', include('incentivo.bolsa.urls')),
+	(r'^faq/', include('incentivo.faq.urls')),
 	#(r'^databrowse/(.*)', databrowse.site.root),
 	#(r'^contact/', include('contact_form.urls')),
 )

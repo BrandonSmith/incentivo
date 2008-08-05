@@ -77,6 +77,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.formtools',
     'bolsa',
+    'faq',
     #'contact_form',
 )
 

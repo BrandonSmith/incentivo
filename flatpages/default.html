@@ -65,7 +65,7 @@
 				{% if flatpage.title.strip %}
 					{{ flatpage.title }}
 				{% else %}
-					Associa&ccedil;&atilde;o Brasileira Incentivo
+					{% block title %}Associa&ccedil;&atilde;o Brasileira Incentivo{% endblock %}
 				{% endif %}
 				</h1>
 				{{ flatpage.content }}
