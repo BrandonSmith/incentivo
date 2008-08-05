@@ -70,8 +70,8 @@ a:hover { color:#ffe761; }
 #billboard h2 { margin:0; }
 #generic #billboard { display:none; }
 #home #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/bolsa.jpg) no-repeat; }
-#quem-somos #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/equipe.jpg) no-repeat; }
-#bolsa-de-estudo #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/bolsa2.jpg) no-repeat; }
+#quem-somos #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/equipe2.jpg) no-repeat; }
+#bolsa-de-estudo #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/bolsa.jpg) no-repeat; }
 #faq #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/faq.jpg) no-repeat; }
 #mba #billboard h2 { margin:0; text-indent:-5000px; height:96px; width:463px; background:url(/resources/images/MBABYU.jpg) no-repeat; }
 
