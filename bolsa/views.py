@@ -52,9 +52,13 @@ def apply(request):
             try:
                 session = ApplicationSession.objects.get(pk=data['applicant_id'])
                 applicant = Applicant.objects.get(session=session)
+                if applicant.email == data['email']:
+                    return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/%s/" % (session.session_id, session.completed_step + 1))
             except (ApplicationSession.DoesNotExist, Applicant.DoesNotExist):
-                return render_to_response('bolsa/templates/apply.html', {'applicant_id': data['applicant_id']})
-            return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/%s/" % (session.session_id, session.completed_step + 1))
+                pass
+            
+            return render_to_response('bolsa/templates/apply.html', {'applicant_id': data['applicant_id']})
+            
         else:
             session = ApplicationSession()
             session.save()
