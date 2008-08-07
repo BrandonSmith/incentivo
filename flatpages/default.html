@@ -74,9 +74,9 @@
 			</div>
 			
 			<div class="sidebar" id="content-related">
-				<h2>{% block sidebartitle %}{% endblock %}</h2>
 				{% block sidebarbefore %}{% endblock %}
-				{% block sidebarcontent %}{% endblock %}
+				<h2>{% block sidebartitle %}{% endblock %}</h2>
+				<div>{% block sidebarcontent %}{% endblock %}</div>
 				{% block sidebarlinks %}{% endblock %}
 			    {% block sidebarsublinks %}{% endblock %}
 				{% block sidebarafter %}{% endblock %}
