@@ -1,5 +1,3 @@
-# Django settings for incentivo project.
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -12,9 +10,7 @@ MANAGERS = (
 )
 
 DATABASE_ENGINE = 'sqlite3'
-#DATABASE_NAME = '/home/incentivo/django_projects/incentivo/db'
 DATABASE_NAME = '/home/brandon/user/django_projects/incentivo/db'
-
 DATABASE_USER = ''
 DATABASE_PASSWORD = ''
 DATABASE_HOST = ''
@@ -30,21 +26,13 @@ SITE_ID = 1
 
 USE_I18N = True
 
-#MEDIA_ROOT = '/home/incentivo/media.incentivo.org.br'
 MEDIA_ROOT = ''
-#OTHER_MEDIA_ROOT = '/home/incentivo/django_projects/incentivo/resources/'
 OTHER_MEDIA_ROOT = '/home/brandon/user/django_projects/incentivo/resources/'
-
-#MEDIA_URL = 'http://mediabolsa.dreamhosters.com/'
 MEDIA_URL = ''
-
-#ADMIN_MEDIA_PREFIX = 'http://mediabolsa.dreamhosters.com/admin_media/'
 ADMIN_MEDIA_PREFIX = '/media/'
 
-# Make this unique, and don't share it with anybody.
 SECRET_KEY = 'wx%272im+hme0(n6*8hvusr*gxk)-5@dx+j2h13m149+=2774z'
 
-# List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.load_template_source',
     'django.template.loaders.app_directories.load_template_source',
@@ -61,19 +49,14 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'incentivo.urls'
 
 TEMPLATE_DIRS = (
-    "/home/incentivo/django_projects/incentivo",
-    "/home/incentivo/django_src/django/contrib/databrowse/templates",
-)
-
-TEMPLATE_DIRS = (
     "/home/brandon/user/django_projects/incentivo",
     "/home/brandon/user/django_src/django/contrib/databrowse/templates",
 )
 
-#TEMPLATE_CONTEXT_PROCESSORS = (
-#    'django.core.context_processors.i18n',
-#    'django.core.context_processors.auth',
-#)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.auth',
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
