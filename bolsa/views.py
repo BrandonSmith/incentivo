@@ -7,6 +7,8 @@ from django import forms
 from django.conf import settings
 
 
+APPLICANT_ID_LABEL = 'applicant_id'
+
 # ------------------- UTILITY METHODS -----------------------------------------#
 class BolsaErrorDict(ErrorDict):
     def __init__(self, form):
@@ -41,10 +43,40 @@ def extract_date(data, element):
 def swindle_date(data):
     return {'day': data.day, 'month': data.month, 'year': data.year}
 
+def initiate_session(request, applicant_id):
+    request.session[APPLICANT_ID_LABEL] = applicant_id
+    request.session.set_expiry(0)
 
+# ---------------------- DECORATORS -------------------------------------------#
+def login_required(fn):
+    def _check(request, applicant_id):
+        try:
+            session_applicant_id = request.session[APPLICANT_ID_LABEL]
+            if session_applicant_id == applicant_id:
+                # only proceed if the session applicant_id is equals to the URL-based applicant_id
+                return fn(request, applicant_id)
+        except KeyError:
+            # if there is a KeyError due to request.session[APPLICANT_ID_LABEL]
+            # then pass so that the user is bumped back to the first page
+            pass
+        return HttpResponseRedirect("/bolsa-de-estudo/apply/")
+    return _check
+
+def ensure_cookie_support(fn):
+    def _check(request, *args, **kwargs):
+        if request.method == 'POST' and 'testcookie' in request.session:
+            if request.session.test_cookie_worked():
+                request.session.delete_test_cookie()
+            else:
+                return HttpResponse("Please enable cookies and try again.")
+        else:
+            request.session.set_test_cookie()
+        return fn(request, *args, **kwargs)
+    return _check
 
 # ---------------------- VIEW METHODS -----------------------------------------#
 
+@ensure_cookie_support
 def apply(request):
     if request.method == 'POST':
         data = request.POST.copy()
@@ -53,6 +85,7 @@ def apply(request):
                 session = ApplicationSession.objects.get(pk=data['applicant_id'])
                 applicant = Applicant.objects.get(session=session)
                 if applicant.email == data['email']:
+                    initiate_session(request, session.session_id)
                     return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/%s/" % (session.session_id, session.completed_step + 1))
             except (ApplicationSession.DoesNotExist, Applicant.DoesNotExist):
                 pass
@@ -62,6 +95,7 @@ def apply(request):
         else:
             session = ApplicationSession()
             session.save()
+            initiate_session(request, session.session_id)
             return HttpResponseRedirect("/bolsa-de-estudo/apply/%s/1/" % session.session_id)
     else:
         return render_to_response('bolsa/templates/apply.html')
@@ -70,7 +104,7 @@ def apply(request):
 
 
 
-
+@login_required
 def applicant(request, applicant_id):
 
     step = 1    
@@ -123,7 +157,7 @@ def applicant(request, applicant_id):
 
 
 
-
+@login_required
 def past(request, applicant_id):
 
     step = 2
@@ -182,7 +216,7 @@ def past(request, applicant_id):
 
 
 
-
+@login_required
 def future(request, applicant_id):
 
     step = 3
@@ -223,10 +257,11 @@ def future(request, applicant_id):
             form = get_form(ApplicantFutureForm)
     return render_to_response('bolsa/templates/3.html', {'applicant_id': applicant_id, 'form': form})
 
-    
-    
-    
-    
+
+
+
+
+@login_required
 def school(request, applicant_id):
 
     step = 4
@@ -277,7 +312,7 @@ def school(request, applicant_id):
 
 
 
-
+@login_required
 def commitments(request, applicant_id):
     
     step = 5
@@ -324,7 +359,7 @@ def commitments(request, applicant_id):
 
 
 
-
+@login_required
 def confirm(request, applicant_id):
     
     step = 6
@@ -349,7 +384,7 @@ def confirm(request, applicant_id):
 
 
 
-
+@login_required
 def done(request, applicant_id):
     
     step = 7
