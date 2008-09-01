@@ -29,13 +29,13 @@
             
             <li{% if form.errors.pay_half %} class="error"{% endif %}>
                 {{ form.pay_half.label_tag }}
-                {% if form.pay_half.field.required %}<span class="required">*</span>{% endif %}
                 <span class="radio choices">
-                    <input id="pay_half_yes" name="pay_half" type="radio" value="1"{% ifequal form.pay_half.data "1" %}checked="checked"{% endifequal %} />
+                    <input id="pay_half_yes" name="pay_half" type="radio" value="1"{% if form.pay_half.data %} checked="checked"{% endif %} />
                     <label class="choice" for="pay_half_yes">Sim</label>
-                    <input id="pay_half_no" name="pay_half" type="radio" value="0"{% ifequal form.pay_half.data "0" %}checked="checked"{% endifequal %} />
+                    <input id="pay_half_no" name="pay_half" type="radio" value="0"{% if not form.pay_half.data %} checked="checked"{% endif %} />
                     <label class="choice" for="pay_half_no">Não</label>
                 </span> 
+                <span class="required">*</span>
             </li>		
             
             <li{% if form.errors.program_url %} class="error"{% endif %}>

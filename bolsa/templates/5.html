@@ -54,6 +54,8 @@
             {% text_input form 'bishop_name' %}
             
             {% text_input form 'bishop_phone' %}
+            
+            {% text_input form 'bishop_email' %}
 
             <li{% if form.errors.additional_comments %} class="error"{% endif %}>
                 {{ form.additional_comments.label_tag }}

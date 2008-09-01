@@ -6,8 +6,6 @@ from django.forms import ModelForm
 from django import forms
 from incentivo.utils import UUIDField
 import bolsa
-from django.core.validators import AlwaysMatchesOtherField
-from django.contrib import admin
 
 
 
@@ -193,7 +191,7 @@ class ApplicantSchool(models.Model):
     program_start_date = models.DateField(help_text="Favor informar a data que pretende começar o curso")
     program_cost = models.IntegerField("Valor da mensalidade do curso (não ponha centavos)", help_text="Favor informar o valor da mensalidade do curso")
     program_city = models.CharField("Cidade do estabelecimento", max_length=50, help_text="Favor informar a cidade na qual o curso é oferecido")
-    pay_half = models.BooleanField("Pode pagar 50% do seu curso?")
+    pay_half = models.BooleanField("Pode pagar 50% do seu curso?", help_text="Você deve selecionar 'Sim' para continuar", blank=False, null=False)
     program_url = models.URLField("Site de internet do estabelecimento/curso", blank=True)
     
 
@@ -204,6 +202,13 @@ class ApplicantSchoolForm(ModelForm):
         if (d > 24):
             raise forms.ValidationError('Pela informação indicada no campo "Duração do programa" você indicou que o curso passa o limite de 24 meses. Infelizmente nós não oferecemos bolsas para curos que tenham uma duração maior do que 24 meses.')
         return d
+    
+    def clean_pay_half(self):
+        d = self.cleaned_data['pay_half']
+        if (d):
+            return d
+        raise forms.ValidationError("Você deve selecionar 'Sim' para continuar")
+        
     class Meta:
         model = ApplicantSchool
 
@@ -226,6 +231,7 @@ class ApplicantCommitments(models.Model):
     ward = models.CharField("Ala/Ramo do Candidato", max_length=100, help_text="Favor informar o nome da sua ala ou do seu ramo")
     bishop_name = models.CharField("Nome do Bispo ou Presidente de Ramo", max_length=100, help_text="Favor informar o nome do seu bispo atual")
     bishop_phone = models.CharField("Telefone", max_length=15, help_text="Favor informar um número")
+    bishop_email = models.CharField("E-mail", max_length=50, help_text="Favor informar um 'e-mail'")
                                                                                  
     additional_comments = models.TextField("Comentarios Adicionais", blank=True)
     
